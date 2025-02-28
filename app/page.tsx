@@ -4,18 +4,17 @@ import Header from "./components/header";
 import HomeSection from "./components/home"
 import AboutSection from "./components/about"
 import ProjectsSection from "./components/projects";
+import ResumeSection from "./components/resume"
 
 
 export default function Home() {
   return (
-    <div className="container flex flex-col gap-10">
+    <div id="home" className="container flex flex-col gap-10">
       <Header />
-      {/* Home Section */}
       <HomeSection />
-      {/* About Section */}
       <AboutSection />
-      {/* Projects Section */}
       <ProjectsSection />
+      <ResumeSection />
     </div>
   );
 }
