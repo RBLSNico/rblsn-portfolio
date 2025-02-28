@@ -3,7 +3,7 @@ import { FaLinkedin} from "react-icons/fa";
 const HomeSection = () => {
     return (
         <section id="home" className="bg-(--primary-blue) rounded-xl flex flex-col items-center p-10 gap-5">
-            <h1 className="text-white text-2xl font-semibold text-center">Hi,</h1>
+            <h1 className="text-white text-3xl font-semibold text-center">Hi,</h1>
             <h1 className="text-(--accent) md:text-5xl text-3xl font-bold text-center">I'm Nico, A Web Developer</h1>
             <p className="text-white text-center max-w-3xl">
                 I specialize in creating and designing websites. I enjoy the process of starting from scratch and improving continuously. Learning is a passion of mine, and I always welcome a good challenge.
@@ -18,4 +18,5 @@ const HomeSection = () => {
         </section>
     )
 }
+
 export default HomeSection

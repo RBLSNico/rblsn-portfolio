@@ -11,7 +11,7 @@ html {
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  /* --foreground: #171717; */
   --primary-blue: #001F3F;
   --accent: #EAD8B1;
 }
@@ -30,6 +30,10 @@ body {
   margin: 0;
   /* Remove default margin */
   padding: 0;
+  background-image: url('/bg_grain.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   /* Remove default padding */
 }
 

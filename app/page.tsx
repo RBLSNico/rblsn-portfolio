@@ -1,10 +1,10 @@
-'use client'
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import Image from "next/image";
 import Header from "./components/header";
 import HomeSection from "./components/home"
 import AboutSection from "./components/about"
 import ProjectsSection from "./components/projects";
+
 
 export default function Home() {
   return (

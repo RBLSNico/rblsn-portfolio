@@ -1,9 +1,21 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Sigmar, PT_Sans_Narrow } from "next/font/google";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
+  subsets: ["latin"],
+});
+
+const sigmar = Sigmar({
+  weight: "400",
+  variable: "--font-sigmar",
+  subsets: ["latin"],
+});
+
+const ptSansNarrow = PT_Sans_Narrow({
+  variable: "--font-pt-sans-narrow",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -21,8 +33,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/rblsn.svg" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
       </head>
       <body
         className={`${plusJakartaSans.variable}`}
