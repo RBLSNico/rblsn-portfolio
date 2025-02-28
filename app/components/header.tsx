@@ -61,17 +61,29 @@ const Header: React.FC = () => {
         };
     }, []);
 
-    // Close mobile menu when a link is clicked
-    const handleLinkClick = (link: string): void => {
-        setActiveLink(link);
-        setIsMobileMenuOpen(false);
+    // Handle link click with navigation
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string): void => {
+        e.preventDefault();
+        
+        // Get the section element
+        const section = document.getElementById(link.replace('#', ''));
+        if (section) {
+            // Scroll to the section
+            section.scrollIntoView({ behavior: 'smooth' });
+            
+            // Update active link
+            setActiveLink(link);
+            
+            // Close mobile menu
+            setIsMobileMenuOpen(false);
+        }
     };
 
     // Close mobile menu when clicking outside
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             const target = event.target as HTMLElement;
-            if (isMobileMenuOpen && !target.closest('header')) {
+            if (isMobileMenuOpen && !target.closest('header') && !target.closest('.mobile-menu')) {
                 setIsMobileMenuOpen(false);
             }
         };
@@ -97,7 +109,7 @@ const Header: React.FC = () => {
                                 href={link.href}
                                 className={`text-[var(--primary-blue)] font-semibold text-md transition-all duration-200 hover:text-blue-800 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeLink === link.href ? "text-blue-800 after:w-full" : ""
                                     }`}
-                                onClick={() => handleLinkClick(link.href)}
+                                onClick={(e) => handleLinkClick(e, link.href)}
                             >
                                 {link.label}
                             </a>
@@ -119,7 +131,7 @@ const Header: React.FC = () => {
                                 href={link.href}
                                 className={`text-[var(--primary-blue)] font-semibold text-md transition-all duration-200 hover:text-blue-800 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeLink === link.href ? "text-blue-800 after:w-full" : ""
                                     }`}
-                                onClick={() => handleLinkClick(link.href)}
+                                onClick={(e) => handleLinkClick(e, link.href)}
                             >
                                 {link.label}
                             </a>
@@ -128,7 +140,7 @@ const Header: React.FC = () => {
                 </nav>
 
                 {/* Mobile menu button */}
-                <button
+                <button 
                     className="md:hidden text-[var(--primary-blue)] focus:outline-none p-2 transition-transform duration-300"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-expanded={isMobileMenuOpen}
@@ -147,18 +159,22 @@ const Header: React.FC = () => {
             </header>
 
             {/* Mobile Menu Dropdown */}
-            <div className={`md:hidden fixed top-20 left-4 right-4 rounded-xl backdrop-blur-lg bg-white/90 shadow-lg z-40 border border-[var(--primary-blue)] transition-all duration-300 transform origin-top ${isMobileMenuOpen
-                ? 'opacity-100 scale-y-100'
-                : 'opacity-0 scale-y-0 pointer-events-none'
-                }`}>
-                <div className="p-6 flex flex-col space-y-4">
+            <div 
+                className={`mobile-menu md:hidden fixed top-20 left-4 right-4 rounded-xl backdrop-blur-lg bg-white/90 shadow-lg z-40 border border-[var(--primary-blue)] transition-all duration-300 ${
+                    isMobileMenuOpen 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 -translate-y-4 pointer-events-none'
+                }`}
+            >
+                <nav className="p-6 flex flex-col space-y-4">
                     {navLinks.map((link: NavLink) => (
                         <a
                             key={link.href}
                             href={link.href}
-                            className={`text-[var(--primary-blue)] font-semibold text-lg py-2 transition-all duration-200 border-b border-gray-200 last:border-b-0 hover:pl-2 ${activeLink === link.href ? "text-blue-800 font-bold" : ""
-                                }`}
-                            onClick={() => handleLinkClick(link.href)}
+                            className={`text-[var(--primary-blue)] font-semibold text-lg py-2 transition-all duration-200 border-b border-gray-200 last:border-b-0 hover:pl-2 active:text-blue-700 ${
+                                activeLink === link.href ? "text-blue-800 font-bold" : ""
+                            }`}
+                            onClick={(e) => handleLinkClick(e, link.href)}
                         >
                             <span className="flex justify-between items-center">
                                 {link.label}
@@ -170,7 +186,7 @@ const Header: React.FC = () => {
                             </span>
                         </a>
                     ))}
-                </div>
+                </nav>
             </div>
         </>
     );
