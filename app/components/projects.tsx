@@ -73,7 +73,7 @@ const ProjectsSection = () => {
                         Developed a custom Airbnb Pricing Calculator for FindaHost using Tailwind CSS and a REST API for real-time pricing calculations. The tool provides dynamic cost breakdowns, helping hosts estimate earnings and optimize their rental strategy with accurate market data.
                     </p>
                     <a href="https://github.com/RBLSNico/NUL-QUEUE" className="flex items-center w-fit bg-black text-white rounded-xl px-5 py-3 hover:bg-white hover:text-black transition-colors duration-300 ease-in-out">
-                        Check out here
+                        Check Out
                     </a>
                 </div>
             </div>
