@@ -30,10 +30,7 @@ body {
   margin: 0;
   /* Remove default margin */
   padding: 0;
-  background-image: url('/bg_grain.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: url('/bg_grain.svg') fixed;
   /* Remove default padding */
 }
 

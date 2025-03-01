@@ -10,9 +10,9 @@ const AboutSection = () => {
                 </div>
                 <div className="w-full">
                     <p className="text-center sm:text-start">
-                        I am Gabriel Nicolas Labutap Robles, I graduated from National University Laguna with a Bachelor's Degree in Information Technology in 2024. I am a passionate Web Developer with a strong foundation in full-stack development, specializing in WordPress, JavaScript, PHP, and modern web frameworks.
-
-                        I am always eager to improve my skills, knowledge, to expand my abilities so that I can contribute to meaningful projects.
+                        I am Gabriel Nicolas Labutap Robles, I graduated from National University Laguna with a Bachelor's Degree in Information Technology in 2024. 
+                        <br/><br/>
+                        I am a passionate Web Developer with a strong foundation in full-stack development, specializing in <strong>WordPress, JavaScript, PHP,</strong> and modern web frameworks. I am always eager to improve my skills, knowledge, to expand my abilities so that I can contribute to meaningful projects.
                     </p>
                 </div>
             </div>
