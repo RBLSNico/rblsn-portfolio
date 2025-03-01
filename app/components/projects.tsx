@@ -47,7 +47,7 @@ const ProjectsSection = () => {
                     title: "PaintAR",
                     description:
                         "An android application that allows its users to see how various paint colors will look in their own living spaces without painting the walls. This application was developed using Java, Kotlin, while implementing the OpenCV library for image processing.",
-                    images: ["/image/paintar.png", "/image/paintar2.png", "/image/paintar3.png"],
+                    images: ["/image/paintar1.png", "/image/paintar2.png", "/image/paintar3.png"],
                     github: "https://github.com/RBLSNico/PaintAR",
                     gradient: "bg-gradient-to-r from-emerald-700 to-green-950",
                 },
@@ -55,7 +55,7 @@ const ProjectsSection = () => {
                     title: "CafeBytes",
                     description:
                         "A self-contained kiosk ordering system developed to eliminate the manual process of taking orders from students at the university cafeteria, saving time and reducing lines during peak hours. This web application was developed using HTML, CSS, Angular, TypeScript, AJAX, and Microsoft SQL Server.",
-                    images: ["/image/cafebytes.png", "/image/cafebytes2.png", "/image/cafebytes3.png"],
+                    images: ["/image/cafebytes1.png", "/image/cafebytes2.png", "/image/cafebytes3.png"],
                     github: "https://github.com/RBLSNico/CafebytesAPI",
                     gradient: "bg-gradient-to-r from-yellow-700 to-amber-950",
                 },
@@ -63,7 +63,7 @@ const ProjectsSection = () => {
                     title: "NU Laguna Queuing System",
                     description:
                         "A queuing system built for the benefit of the students at National University Laguna. This system optimizes the queuing process for students availing of various student services, such as enrollment, cashier transactions, and registrar’s office assistance.",
-                    images: ["/image/nulqueue.png", "/image/nulqueue2.png", "/image/nulqueue3.png"],
+                    images: ["/image/nulqueue1.png", "/image/nulqueue2.png", "/image/nulqueue3.png"],
                     github: "https://github.com/RBLSNico/NUL-QUEUE",
                     gradient: "bg-gradient-to-r from-indigo-700 to-blue-950",
                 },
@@ -71,7 +71,7 @@ const ProjectsSection = () => {
                     title: "FindaHost",
                     description:
                         "As the lead WordPress Developer for FindaHost, I was tasked to build, optimize, and maintain the whole website, ensuring seamless functionality, Search Engine Optimization (SEO), and enhanced user experience.",
-                    images: ["/image/findahost.png", "/image/findahost2.png", "/image/findahost3.png"],
+                    images: ["/image/findahost1.png", "/image/findahost2.png", "/image/findahost3.png"],
                     link: "https://findahost.io/",
                     gradient: "bg-gradient-to-r from-purple-700 to-fuchsia-950",
                 },
@@ -79,7 +79,7 @@ const ProjectsSection = () => {
                     title: "FindaHost AirBnb Calculator",
                     description:
                         "Developed a custom Airbnb Pricing Calculator for FindaHost using Tailwind CSS and a REST API for real-time pricing calculations. The tool provides dynamic cost breakdowns, helping hosts estimate earnings and optimize their rental strategy with accurate market data.",
-                    images: ["/image/airbnb_calculator.png", "/image/airbnb_calc2.png", "/image/airbnb_calc3.png"],
+                    images: ["/image/airbnb_calc1.png", "/image/airbnb_calc2.png", "/image/airbnb_calc3.png"],
                     link: "https://findahost.io/airbnb-calculator/",
                     gradient: "bg-gradient-to-r from-red-950 to-red-800",
                 },
@@ -87,7 +87,7 @@ const ProjectsSection = () => {
                     title: "Kunda House",
                     description:
                         "Responsible for maintaining and enhancing Kunda House's existing WordPress website. Improving site speed and SEO performance, successfully restoring full functionality, enhancing speed, and improving search engine visibility. Integrated Beds24 support for property management.",
-                    images: ["/image/kundahouse.png", "/image/kundahouse2.png", "/image/kundahouse3.png"],
+                    images: ["/image/kundahouse1.png", "/image/kundahouse2.png", "/image/kundahouse3.png"],
                     link: "https://kunda.house/",
                     gradient: "bg-gradient-to-r from-purple-700 to-fuchsia-950",
                 },
