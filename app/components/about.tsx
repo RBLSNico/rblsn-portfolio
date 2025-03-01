@@ -65,11 +65,16 @@ const AboutSection = () => {
         );
 
         // Bio text animation
+        const animationSettings = window.innerWidth <= 768
+            ? { y: 50, opacity: 0 } // Mobile: Fade up
+            : { x: 50, opacity: 0 }; // Desktop: Fade from right
+
         gsap.fromTo(
             bioRef.current,
-            { x: 50, opacity: 0 },
+            animationSettings,
             {
                 x: 0,
+                y: 0,
                 opacity: 1,
                 duration: 0.8,
                 scrollTrigger: {
@@ -79,6 +84,7 @@ const AboutSection = () => {
                 }
             }
         );
+
 
         // Stack title animation
         gsap.fromTo(
