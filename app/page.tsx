@@ -1,5 +1,4 @@
-import { FaLinkedin, FaGithub } from "react-icons/fa";
-import Image from "next/image";
+'use client'
 import Header from "./components/header";
 import HomeSection from "./components/home"
 import AboutSection from "./components/about"

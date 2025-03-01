@@ -30,7 +30,7 @@ body {
   margin: 0;
   /* Remove default margin */
   padding: 0;
-  background: url('/svg/bg_grain.svg') fixed;
+  background: url('/image/bg_grain.png') fixed;
   /* Remove default padding */
 }
 
@@ -41,4 +41,22 @@ body {
   /* Center the container */
   padding: 0 20px;
   /* Optional: Add some horizontal padding */
+}
+
+/* In your global CSS or component CSS */
+.fade-in-up {
+  animation: fadeInUp 2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
