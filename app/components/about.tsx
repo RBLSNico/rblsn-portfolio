@@ -6,7 +6,7 @@ const AboutSection = () => {
             <h1 className="text-(--primary-blue) text-3xl font-bold text-center">About Me</h1>
             <div className="m-0 flex items-center justify-center p-10 flex-col gap-10 md:flex-row">
                 <div className="w-full items-center justify-center flex">
-                    <img src="/rblsnico_img.jpg" className="max-w-[250px] rounded-full"></img>
+                    <img src="/image/rblsnico_img.jpg" className="max-w-[250px] rounded-full"></img>
                 </div>
                 <div className="w-full">
                     <p className="text-center sm:text-start">
@@ -47,7 +47,7 @@ const AboutSection = () => {
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">Elementor</h2>
                 </div>
                 <div className="relative bg-gradient-to-r from-blue-400 to-cyan-500 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
-                    <img src="/tailwindcss.svg" alt="Tailwind CSS" className="w-20 h-20" />
+                    <img src="/svg/tailwindcss.svg" alt="Tailwind CSS" className="w-20 h-20" />
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">Tailwind CSS</h2>
                 </div>
                 <div className="relative bg-gradient-to-r from-sky-400 to-blue-500 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
@@ -55,15 +55,15 @@ const AboutSection = () => {
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">React</h2>
                 </div>
                 <div className="relative bg-gradient-to-r from-black to-gray-900 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
-                    <img src="/next.svg" alt="Nextjs" className="w-20 h-20" />
+                    <img src="/svg/next.svg" alt="Nextjs" className="w-20 h-20" />
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">Next.js</h2>
                 </div>
                 <div className="relative bg-gradient-to-r from-yellow-400 to-orange-500 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
-                    <img src="/firebase.svg" alt="Firebase" className="w-20 h-20" />
+                    <img src="/svg/firebase.svg" alt="Firebase" className="w-20 h-20" />
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">Firebase</h2>
                 </div>
                 <div className="relative bg-gradient-to-r from-blue-600 to-blue-800 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
-                    <img src="/sql.svg" alt="SQL" className="w-20 h-20" />
+                    <img src="/svg/sql.svg" alt="SQL" className="w-20 h-20" />
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">MySQL</h2>
                 </div>
             </div>

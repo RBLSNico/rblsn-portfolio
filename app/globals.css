@@ -30,7 +30,7 @@ body {
   margin: 0;
   /* Remove default margin */
   padding: 0;
-  background: url('/bg_grain.svg') fixed;
+  background: url('/svg/bg_grain.svg') fixed;
   /* Remove default padding */
 }
 
