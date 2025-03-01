@@ -16,12 +16,12 @@ const ProjectsSection = () => {
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 0.5,
+                    duration: 1,
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: project,
                         start: "top 80%",
-                        toggleActions: "play none restart none",
+                        toggleActions: "play none none reset",
                     },
                     stagger: 0.2,
                 }
