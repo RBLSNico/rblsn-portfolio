@@ -47,7 +47,7 @@ const ProjectsSection = () => {
                     title: "PaintAR",
                     description:
                         "An android application that allows its users to see how various paint colors will look in their own living spaces without painting the walls. This application was developed using Java, Kotlin, while implementing the OpenCV library for image processing.",
-                    images: ["/image/PaintAR.png", "/image/PaintAR2.png", "/image/PaintAR3.png"],
+                    images: ["/image/paintar.png", "/image/paintar2.png", "/image/paintar3.png"],
                     github: "https://github.com/RBLSNico/PaintAR",
                     gradient: "bg-gradient-to-r from-emerald-700 to-green-950",
                 },
@@ -55,7 +55,7 @@ const ProjectsSection = () => {
                     title: "CafeBytes",
                     description:
                         "A self-contained kiosk ordering system developed to eliminate the manual process of taking orders from students at the university cafeteria, saving time and reducing lines during peak hours. This web application was developed using HTML, CSS, Angular, TypeScript, AJAX, and Microsoft SQL Server.",
-                    images: ["/image/CafeBytes.png", "/image/CafeBytes2.png", "/image/CafeBytes3.png"],
+                    images: ["/image/cafebytes.png", "/image/cafebytes2.png", "/image/cafebytes3.png"],
                     github: "https://github.com/RBLSNico/CafebytesAPI",
                     gradient: "bg-gradient-to-r from-yellow-700 to-amber-950",
                 },
@@ -71,7 +71,7 @@ const ProjectsSection = () => {
                     title: "FindaHost",
                     description:
                         "As the lead WordPress Developer for FindaHost, I was tasked to build, optimize, and maintain the whole website, ensuring seamless functionality, Search Engine Optimization (SEO), and enhanced user experience.",
-                    images: ["/image/findaHost.png", "/image/findaHost2.png", "/image/findaHost3.png"],
+                    images: ["/image/findahost.png", "/image/findahost2.png", "/image/findahost3.png"],
                     link: "https://findahost.io/",
                     gradient: "bg-gradient-to-r from-purple-700 to-fuchsia-950",
                 },
