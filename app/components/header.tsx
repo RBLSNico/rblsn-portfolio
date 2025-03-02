@@ -192,7 +192,7 @@ const Header: React.FC = () => {
                         <a
                             key={link.href}
                             href={link.href}
-                            className={`text-[var(--primary-blue)] font-semibold text-lg py-2 transition-all duration-200 border-b border-gray-200 last:border-b-0 hover:pl-2 active:text-blue-800 ${activeLink === link.href ? "text-blue-800 font-bold" : ""
+                            className={`text-[#001F3F] font-semibold text-lg py-2 transition-all duration-200 border-b border-gray-200 last:border-b-0 hover:pl-2 active:text-blue-800 ${activeLink === link.href ? "text-blue-800 font-bold" : ""
                                 }`}
                             onClick={(e) => handleLinkClick(e, link.href)}
                         >
