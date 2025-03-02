@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import DarkModeToggle from './darkmodetoggle';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -126,7 +127,7 @@ const Header: React.FC = () => {
                             <a
                                 key={link.href}
                                 href={link.href}
-                                className={`text-[var(--primary-blue)] font-semibold text-md transition-all duration-200 hover:text-blue-800 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeLink === link.href ? "text-blue-800 after:w-full" : ""
+                                className={`text-[var(--primary-blue)] font-semibold text-md transition-all duration-200 hover:text-blue-800 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-800 after:transition-all after:duration-300 hover:after:w-full ${activeLink === link.href ? "text-blue-800 after:w-full" : ""
                                     }`}
                                 onClick={(e) => handleLinkClick(e, link.href)}
                             >
@@ -136,11 +137,12 @@ const Header: React.FC = () => {
                     </div>
 
                     <div className="flex items-center justify-center mx-4">
-                        <img
+                        {/* <img
                             src="/svg/rblsn.svg"
                             alt="RBLS logo"
                             className="w-10 h-10 transition-transform duration-300 hover:rotate-12"
-                        />
+                        /> */}
+                        <DarkModeToggle />
                     </div>
 
                     <div className="flex space-x-8">
@@ -148,7 +150,7 @@ const Header: React.FC = () => {
                             <a
                                 key={link.href}
                                 href={link.href}
-                                className={`text-[var(--primary-blue)] font-semibold text-md transition-all duration-200 hover:text-blue-800 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeLink === link.href ? "text-blue-800 after:w-full" : ""
+                                className={`text-[var(--primary-blue)] font-semibold text-md transition-all duration-200 hover:text-blue-800 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-800 after:transition-all after:duration-300 hover:after:w-full ${activeLink === link.href ? "text-blue-800 after:w-full" : ""
                                     }`}
                                 onClick={(e) => handleLinkClick(e, link.href)}
                             >
@@ -189,7 +191,7 @@ const Header: React.FC = () => {
                         <a
                             key={link.href}
                             href={link.href}
-                            className={`text-[var(--primary-blue)] font-semibold text-lg py-2 transition-all duration-200 border-b border-gray-200 last:border-b-0 hover:pl-2 active:text-blue-700 ${activeLink === link.href ? "text-blue-800 font-bold" : ""
+                            className={`text-[var(--primary-blue)] font-semibold text-lg py-2 transition-all duration-200 border-b border-gray-200 last:border-b-0 hover:pl-2 active:text-blue-800 ${activeLink === link.href ? "text-blue-800 font-bold" : ""
                                 }`}
                             onClick={(e) => handleLinkClick(e, link.href)}
                         >

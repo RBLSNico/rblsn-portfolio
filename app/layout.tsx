@@ -36,7 +36,7 @@ export default function RootLayout({
         <link rel="icon" href="/svg/rblsn.svg" />
       </head>
       <body
-        className={`${plusJakartaSans.variable}`}
+        className={`${plusJakartaSans.variable} bg-blue`}
       >
         {children}
         <Footer />

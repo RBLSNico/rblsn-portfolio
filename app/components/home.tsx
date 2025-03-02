@@ -65,7 +65,7 @@ const HomeSection = () => {
     return (
         <section
             ref={sectionRef}
-            className="bg-(--primary-blue) rounded-xl flex flex-col items-center p-10 gap-5"
+            className="bg-(--primary-blue) dark:bg-[#001F3F] rounded-xl flex flex-col items-center p-10 gap-5"
         >
             <h1
                 ref={titleRef}
