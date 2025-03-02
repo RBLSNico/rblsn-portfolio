@@ -1,5 +1,8 @@
 import { useEffect, useRef } from "react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaJava, FaAndroid, FaHtml5, FaAngular, FaDatabase, FaWordpress, FaReact, FaBootstrap, FaElementor } from "react-icons/fa";
+import { SiKotlin, SiTypescript, SiTailwindcss, SiOpencv, SiSwagger, SiPhp } from "react-icons/si";
+import { DiMsqlServer, DiMysql } from "react-icons/di";
+import { TbApi } from "react-icons/tb";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -50,6 +53,12 @@ const ProjectsSection = () => {
                     images: ["/image/paintar1.png", "/image/paintar2.png", "/image/paintar3.png"],
                     github: "https://github.com/RBLSNico/PaintAR",
                     gradient: "bg-gradient-to-r from-emerald-700 to-green-950",
+                    icons: [
+                        { icon: FaJava, name: "Java" },
+                        { icon: SiKotlin, name: "Kotlin" },
+                        { icon: FaAndroid, name: "Android" },
+                        { icon: SiOpencv, name: "OpenCV" }
+                    ]
                 },
                 {
                     title: "CafeBytes",
@@ -58,14 +67,25 @@ const ProjectsSection = () => {
                     images: ["/image/cafebytes1.png", "/image/cafebytes2.png", "/image/cafebytes3.png"],
                     github: "https://github.com/RBLSNico/CafebytesAPI",
                     gradient: "bg-gradient-to-r from-yellow-700 to-amber-950",
+                    icons: [
+                        { icon: FaAngular, name: "Angular" },
+                        { icon: DiMsqlServer, name: "SQL Server" },
+                        { icon: SiSwagger, name: "Swagger UI" }
+                    ]
                 },
                 {
                     title: "NU Laguna Queuing System",
                     description:
-                        "A queuing system built for the benefit of the students at National University Laguna. This system optimizes the queuing process for students availing of various student services, such as enrollment, cashier transactions, and registrar’s office assistance.",
+                        "A queuing system built for the benefit of the students at National University Laguna. This system optimizes the queuing process for students availing of various student services, such as enrollment, cashier transactions, and registrar's office assistance.",
                     images: ["/image/nulqueue1.png", "/image/nulqueue2.png", "/image/nulqueue3.png"],
                     github: "https://github.com/RBLSNico/NUL-QUEUE",
                     gradient: "bg-gradient-to-r from-indigo-700 to-blue-950",
+                    icons: [
+                        { icon: FaHtml5, name: "HTML/CSS" },
+                        { icon: DiMysql, name: "Mysql" },
+                        { icon: SiPhp, name: "PHP" },
+                        { icon: FaBootstrap, name: "Bootstrap" }
+                    ]
                 },
                 {
                     title: "FindaHost",
@@ -74,6 +94,11 @@ const ProjectsSection = () => {
                     images: ["/image/findahost1.png", "/image/findahost2.png", "/image/findahost3.png"],
                     link: "https://findahost.io/",
                     gradient: "bg-gradient-to-r from-purple-700 to-fuchsia-950",
+                    icons: [
+                        { icon: FaWordpress, name: "WordPress" },
+                        { icon: FaHtml5, name: "HTML/CSS" },
+                        { icon: FaHtml5, name: "Elementor" }
+                    ]
                 },
                 {
                     title: "FindaHost AirBnb Calculator",
@@ -82,6 +107,12 @@ const ProjectsSection = () => {
                     images: ["/image/airbnb_calc1.png", "/image/airbnb_calc2.png", "/image/airbnb_calc3.png"],
                     link: "https://findahost.io/airbnb-calculator/",
                     gradient: "bg-gradient-to-r from-red-950 to-red-800",
+                    icons: [
+                        { icon: SiTailwindcss, name: "Tailwind CSS" },
+                        { icon: TbApi, name: "REST API" },
+                        { icon: FaWordpress, name: "WordPress" },
+                        { icon: FaHtml5, name: "Elementor" }
+                    ]
                 },
                 {
                     title: "Kunda House",
@@ -90,6 +121,11 @@ const ProjectsSection = () => {
                     images: ["/image/kundahouse1.png", "/image/kundahouse2.png", "/image/kundahouse3.png"],
                     link: "https://kunda.house/",
                     gradient: "bg-gradient-to-r from-purple-700 to-fuchsia-950",
+                    icons: [
+                        { icon: FaWordpress, name: "WordPress" },
+                        { icon: FaHtml5, name: "HTML/CSS" },
+                        { icon: FaHtml5, name: "Elementor" }
+                    ]
                 },
             ].map((project, index) => (
                 <div
@@ -118,6 +154,17 @@ const ProjectsSection = () => {
                     <div className="w-full flex flex-col gap-5 items-center md:items-start">
                         <h1 className="text-white text-2xl font-semibold text-center md:text-left">{project.title}</h1>
                         <p className="text-white text-center md:text-left">{project.description}</p>
+
+                        {/* Technology Icons */}
+                        <div className="flex flex-wrap gap-4 justify-center md:justify-start mt-2">
+                            {project.icons.map((item, i) => (
+                                <div key={i} className="flex flex-col items-center">
+                                    <item.icon size={24} className="text-white hover:text-gray-200 transition-colors duration-300" />
+                                    <span className="text-white text-xs mt-1">{item.name}</span>
+                                </div>
+                            ))}
+                        </div>
+
                         {project.github ? (
                             <a
                                 href={project.github}

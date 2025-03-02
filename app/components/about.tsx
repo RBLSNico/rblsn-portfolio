@@ -1,7 +1,12 @@
 import { useEffect, useRef, RefObject } from 'react';
 import { FaWordpress, FaNode, FaPhp, FaJs, FaCss3, FaReact, FaElementor, FaHtml5 } from "react-icons/fa";
+import { IoLogoFirebase } from "react-icons/io5";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
+import { DiMysql } from "react-icons/di";
+
+
 
 const AboutSection = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -181,7 +186,7 @@ const AboutSection = () => {
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">Elementor</h2>
                 </div>
                 <div ref={addToRefs} className="relative bg-gradient-to-r from-blue-400 to-cyan-500 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
-                    <img src="/svg/tailwindcss.svg" alt="Tailwind CSS" className="w-20 h-20" />
+                    <RiTailwindCssFill className="w-16 h-16 mb-2" />
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">Tailwind CSS</h2>
                 </div>
                 <div ref={addToRefs} className="relative bg-gradient-to-r from-sky-400 to-blue-500 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
@@ -189,15 +194,15 @@ const AboutSection = () => {
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">React</h2>
                 </div>
                 <div ref={addToRefs} className="relative bg-gradient-to-r from-black to-gray-900 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
-                    <img src="/svg/next.svg" alt="Nextjs" className="w-20 h-20" />
+                    <RiNextjsFill className="w-16 h-16 mb-2" />
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">Next.js</h2>
                 </div>
                 <div ref={addToRefs} className="relative bg-gradient-to-r from-yellow-400 to-orange-500 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
-                    <img src="/svg/firebase.svg" alt="Firebase" className="w-20 h-20" />
+                    <IoLogoFirebase className="w-16 h-16 mb-2" />
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">Firebase</h2>
                 </div>
                 <div ref={addToRefs} className="relative bg-gradient-to-r from-blue-600 to-blue-800 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
-                    <img src="/svg/sql.svg" alt="SQL" className="w-20 h-20" />
+                    <DiMysql className="w-16 h-16 mb-2" />
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">MySQL</h2>
                 </div>
             </div>
