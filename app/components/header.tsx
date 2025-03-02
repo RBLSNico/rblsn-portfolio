@@ -118,7 +118,8 @@ const Header: React.FC = () => {
         <>
             <header ref={headerRef} className="w-[100%] sticky top-4 flex flex-row items-center justify-between px-6 py-4 backdrop-blur-lg bg-white/30 rounded-full border border-[var(--primary-blue)] mx-auto shadow-md z-50 transition-all duration-300 hover:shadow-lg">
                 <div className="md:hidden flex items-center justify-center ml-2">
-                    <img src="/svg/rblsn.svg" alt="RBLS logo" className="w-10 h-10" />
+                    {/* <img src="/svg/rblsn.svg" alt="RBLS logo" className="w-10 h-10" /> */}
+                    <DarkModeToggle />
                 </div>
 
                 <nav className="hidden md:flex items-center justify-between w-full">
