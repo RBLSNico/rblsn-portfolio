@@ -128,7 +128,7 @@ const Header: React.FC = () => {
                             <a
                                 key={link.href}
                                 href={link.href}
-                                className={`text-[var(--primary-blue)] font-semibold text-md transition-all duration-200 hover:text-blue-800 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-800 after:transition-all after:duration-300 hover:after:w-full ${activeLink === link.href ? "text-blue-800 after:w-full" : ""
+                                className={`text-[var(--primary-blue)] font-semibold text-md transition-all duration-200 hover:text-blue-800 dark:hover:text-[#EAD8B1] hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-800 dark:after:bg-[#EAD8B1] after:transition-all after:duration-300 hover:after:w-full ${activeLink === link.href ? "text-blue-800 dark:text-[#EAD8B1] after:w-full" : ""
                                     }`}
                                 onClick={(e) => handleLinkClick(e, link.href)}
                             >
@@ -151,7 +151,7 @@ const Header: React.FC = () => {
                             <a
                                 key={link.href}
                                 href={link.href}
-                                className={`text-[var(--primary-blue)] font-semibold text-md transition-all duration-200 hover:text-blue-800 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-800 after:transition-all after:duration-300 hover:after:w-full ${activeLink === link.href ? "text-blue-800 after:w-full" : ""
+                                className={`text-[var(--primary-blue)] font-semibold text-md transition-all duration-200 hover:text-blue-800 dark:hover:text-[#EAD8B1] hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-800 dark:after:bg-[#EAD8B1] after:transition-all after:duration-300 hover:after:w-full ${activeLink === link.href ? "text-blue-800 dark:text-[#EAD8B1] after:w-full" : ""
                                     }`}
                                 onClick={(e) => handleLinkClick(e, link.href)}
                             >
