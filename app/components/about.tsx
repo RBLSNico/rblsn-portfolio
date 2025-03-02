@@ -1,5 +1,6 @@
 import { useEffect, useRef, RefObject } from 'react';
-import { FaWordpress, FaNode, FaPhp, FaJs, FaCss3, FaReact, FaElementor, FaHtml5 } from "react-icons/fa";
+import { FaWordpress, FaNode, FaPhp, FaJs, FaCss3, FaReact, FaElementor, FaHtml5, FaCloudflare, FaCcStripe, FaFigma } from "react-icons/fa";
+import { SiPlesk } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -149,9 +150,9 @@ const AboutSection = () => {
                 </div>
                 <div ref={bioRef} className="w-full">
                     <p className="text-center sm:text-start">
-                        I am Gabriel Nicolas Labutap Robles, I graduated from National University Laguna with a Bachelor's Degree in Information Technology in 2024.
+                        I am Gabriel Nicolas Labutap Robles, I graduated <strong>cum laude</strong> from National University Laguna with a Bachelor's Degree in Information Technology in 2024 and won the <strong>Best Capstone Project award</strong> for our project, <a href="#PaintAR" className="font-bold">PaintAR</a>.
                         <br /><br />
-                        I am a passionate Web Developer with a strong foundation in full-stack development, specializing in <strong>WordPress, JavaScript, PHP,</strong> and modern web frameworks. I am always eager to improve my skills, knowledge, to expand my abilities so that I can contribute to meaningful projects.
+                        I have extensive experience in creating and maintaining WordPress sites and am actively upskilling in modern frameworks to broaden my expertise and enhance my contributions to impactful projects.
                     </p>
                 </div>
             </div>
@@ -205,6 +206,23 @@ const AboutSection = () => {
                     <DiMysql className="w-16 h-16 mb-2" />
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">MySQL</h2>
                 </div>
+                <div ref={addToRefs} className="relative bg-gradient-to-r from-orange-400 to-orange-600 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
+                    <FaCloudflare className="w-16 h-16 mb-2" />
+                    <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">Cloudflare</h2>
+                </div>
+                <div ref={addToRefs} className="relative bg-gradient-to-r from-gray-700 to-gray-900 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
+                    <SiPlesk className="w-16 h-16 mb-2" />
+                    <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">Plesk Obsidian</h2>
+                </div>
+                <div ref={addToRefs} className="relative bg-gradient-to-r from-indigo-500 to-blue-700 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
+                    <FaCcStripe className="w-16 h-16 mb-2" />
+                    <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">Stripe</h2>
+                </div>
+                <div ref={addToRefs} className="relative bg-gradient-to-r from-pink-500 to-purple-600 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
+                    <FaFigma className="w-16 h-16 mb-2" />
+                    <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">Figma</h2>
+                </div>
+
             </div>
         </section>
     );
