@@ -77,7 +77,7 @@ const HomeSection = () => {
                 ref={subtitleRef}
                 className="text-(--accent) md:text-5xl text-3xl font-bold text-center"
             >
-                I'm Nico, A Web Developer
+                I'm Nico, A Developer
             </h1>
             <p
                 ref={paragraphRef}
