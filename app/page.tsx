@@ -8,12 +8,12 @@ import ResumeSection from "./components/resume"
 
 export default function Home() {
   return (
-    <div id="home" className="container flex flex-col gap-10">
+    <main id="home" className="container flex flex-col gap-10">
       <Header />
       <HomeSection />
       <AboutSection />
       <ProjectsSection />
       <ResumeSection />
-    </div>
+    </main>
   );
 }
