@@ -47,7 +47,7 @@ const ProjectsSection = () => {
     return (
 
         <section id="projects" className="rounded-xl flex flex-col items-center gap-5">
-            <h1 className="text-(--primary-blue) text-3xl font-bold text-center">Works</h1>
+            <h1 className="text-(--primary-blue) text-3xl font-bold text-center mt-5">Work Experience</h1>
 
             {[
                 {
@@ -106,6 +106,80 @@ const ProjectsSection = () => {
                         { icon: IoLogoJavascript, name: "JavaScript" },
                     ]
                 },
+            ].map((project, index) => (
+                <div
+                    key={index}
+                    ref={(el) => {
+                        if (el) projectsRef.current[index] = el;
+                    }}
+                    className={`flex md:${project.direction} flex-col items-center justify-center gap-5 p-10 rounded-xl ${project.gradient}`}
+                >
+                    {/* Carousel Section */}
+                    <div className="flex items-center justify-center">
+                        <Carousel className="max-w-[85%]">
+                            <CarouselContent>
+                                {project.images.map((image, i) => (
+                                    <CarouselItem key={i} className="flex justify-center">
+                                        <img src={image} alt={`${project.title} - ${i + 1}`} className="rounded-xl w-full h-auto" />
+                                    </CarouselItem>
+                                ))}
+                            </CarouselContent>
+                            <CarouselPrevious />
+                            <CarouselNext />
+                        </Carousel>
+                    </div>
+
+                    {/* Project Info Section */}
+                    <div className="w-full flex flex-col gap-5 items-center md:items-start">
+                        <h1 className="text-white text-2xl font-semibold text-center md:text-left">{project.title}</h1>
+                        <h2 className="text-white text-sm font-extralight text-center md:text-left">{project.date}</h2>
+                        <p className="text-white text-center md:text-left">{project.description}</p>
+
+
+                        {/* Technology Icons */}
+                        <div className="flex flex-wrap gap-4 justify-center md:justify-start mt-2">
+                            {project.icons.map((item, i) => {
+                                const [showName, setShowName] = useState(false);
+
+                                return (
+                                    <div
+                                        key={i}
+                                        className="flex flex-col items-center relative group cursor-pointer"
+                                        onClick={() => setShowName(!showName)}
+                                    >
+                                        {/* Icon */}
+                                        <item.icon
+                                            size={24}
+                                            className="text-white hover:text-gray-200 transition-colors duration-300"
+                                        />
+
+                                        {/* Name - Appears on hover or click */}
+                                        <span
+                                            className={`absolute bottom-[-20px] bg-gray-800 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${showName ? "opacity-100" : ""
+                                                }`}
+                                        >
+                                            {item.name}
+                                        </span>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {
+                            <a
+                                href={project.link}
+                                className="flex items-center w-fit bg-black text-white rounded-xl px-5 py-3 hover:bg-white hover:text-black transition-colors duration-300 ease-in-out"
+                            >
+                                Check Out Here
+                            </a>
+                        }
+                    </div>
+                </div>
+            ))}
+
+            <h1 className="text-(--primary-blue) text-3xl font-bold text-center mt-5">Projects</h1>
+
+            {[
                 {
                     title: "NU Laguna Queuing System",
                     description:
@@ -233,20 +307,13 @@ const ProjectsSection = () => {
                             })}
                         </div>
 
-                        {project.github ? (
+                        {(
                             <a
                                 href={project.github}
                                 className="flex items-center w-fit bg-black text-white rounded-xl px-5 py-3 hover:bg-white hover:text-black transition-colors duration-300 ease-in-out"
                             >
                                 <FaGithub className="mr-2" />
                                 View on GitHub
-                            </a>
-                        ) : (
-                            <a
-                                href={project.link}
-                                className="flex items-center w-fit bg-black text-white rounded-xl px-5 py-3 hover:bg-white hover:text-black transition-colors duration-300 ease-in-out"
-                            >
-                                Check Out Here
                             </a>
                         )}
                     </div>
