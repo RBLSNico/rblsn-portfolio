@@ -148,6 +148,21 @@ const ProjectsSection = () => {
     // Projects data
     const projects: ProjectItem[] = [
         {
+            title: "This Portfolio",
+            description:
+                "This portfolio was made with ❤️ using Next.js, React, Tailwind CSS, and GSAP for the animations.",
+            images: ["/image/portfolio1.png", "/image/portfolio2.png", "/image/portfolio3.png"],
+            date: "February 2025",
+            github: "https://github.com/RBLSNico/rblsn-portfolio",
+            gradient: "bg-gradient-to-r from-slate-800 to-gray-950",
+            icons: [
+                { icon: RiNextjsFill, name: "Next.js" },
+                { icon: FaReact, name: "React" },
+                { icon: SiTypescript, name: "TypeScript" },
+                { icon: SiTailwindcss, name: "Tailwind CSS" },
+            ]
+        },
+        {
             title: "FindaHost AirBnb Calculator",
             description:
                 "Developed a custom Airbnb Pricing Calculator for FindaHost using Tailwind CSS and a REST API for real-time pricing calculations. The tool provides dynamic cost breakdowns, helping hosts estimate earnings and optimize their rental strategy with accurate market data.",
@@ -209,21 +224,6 @@ const ProjectsSection = () => {
                 { icon: SiKotlin, name: "Kotlin" },
                 { icon: FaAndroid, name: "Android Studio" },
                 { icon: SiOpencv, name: "OpenCV" }
-            ]
-        },
-        {
-            title: "This Portfolio",
-            description:
-                "This portfolio was made with ❤️ using Next.js, React, Tailwind CSS, and GSAP for the animations.",
-            images: ["/image/portfolio1.png", "/image/portfolio2.png", "/image/portfolio3.png"],
-            date: "February 2025",
-            github: "https://github.com/RBLSNico/rblsn-portfolio",
-            gradient: "bg-gradient-to-r from-slate-800 to-gray-950",
-            icons: [
-                { icon: RiNextjsFill, name: "Next.js" },
-                { icon: FaReact, name: "React" },
-                { icon: SiTypescript, name: "TypeScript" },
-                { icon: SiTailwindcss, name: "Tailwind CSS" },
             ]
         },
     ];
