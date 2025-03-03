@@ -56,6 +56,7 @@ const ProjectsSection = () => {
                         "As the lead WordPress Developer for FindaHost, I was tasked to build, optimize, and maintain the whole website, ensuring seamless functionality, Search Engine Optimization (SEO), and enhanced user experience.",
                     images: ["/image/findahost1.png", "/image/findahost2.png", "/image/findahost3.png"],
                     date: "June 2024 - Present",
+                    direction: "flex-col",
                     link: "https://findahost.io/",
                     gradient: "bg-gradient-to-r from-purple-700 to-fuchsia-950",
                     icons: [
@@ -77,6 +78,7 @@ const ProjectsSection = () => {
                         "Developed a custom Airbnb Pricing Calculator for FindaHost using Tailwind CSS and a REST API for real-time pricing calculations. The tool provides dynamic cost breakdowns, helping hosts estimate earnings and optimize their rental strategy with accurate market data.",
                     images: ["/image/airbnb_calc1.png", "/image/airbnb_calc2.png", "/image/airbnb_calc3.png"],
                     date: "November 2024 - December 2024",
+                    direction: "flex-col",
                     link: "https://findahost.io/airbnb-calculator/",
                     gradient: "bg-gradient-to-r from-red-950 to-red-800",
                     icons: [
@@ -94,6 +96,7 @@ const ProjectsSection = () => {
                         "Responsible for maintaining and enhancing Kunda House's existing WordPress website. Improving site speed and SEO performance, successfully restoring full functionality, enhancing speed, and improving search engine visibility. Integrated Beds24 support for property management.",
                     images: ["/image/kundahouse1.png", "/image/kundahouse2.png", "/image/kundahouse3.png"],
                     date: "June 2024 - Present",
+                    direction: "flex-col",
                     link: "https://kunda.house/",
                     gradient: "bg-gradient-to-r from-purple-700 to-fuchsia-950",
                     icons: [
@@ -109,6 +112,7 @@ const ProjectsSection = () => {
                         "A queuing system built for the benefit of the students at National University Laguna. This system optimizes the queuing process for students availing of various student services, such as enrollment, cashier transactions, and registrar's office assistance.",
                     images: ["/image/nulqueue1.png", "/image/nulqueue2.png", "/image/nulqueue3.png"],
                     date: "December 2023 - January 2024",
+                    direction: "flex-col",
                     github: "https://github.com/RBLSNico/NUL-QUEUE",
                     gradient: "bg-gradient-to-r from-indigo-700 to-blue-950",
                     icons: [
@@ -125,6 +129,7 @@ const ProjectsSection = () => {
                         "A self-contained kiosk ordering system developed to eliminate the manual process of taking orders from students at the university cafeteria, saving time and reducing lines during peak hours. This web application was developed using HTML, CSS, Angular, TypeScript, AJAX, and Microsoft SQL Server.",
                     images: ["/image/cafebytes1.png", "/image/cafebytes2.png", "/image/cafebytes3.png"],
                     date: "June 2023",
+                    direction: "flex-col",
                     github: "https://github.com/RBLSNico/CafebytesAPI",
                     gradient: "bg-gradient-to-r from-yellow-700 to-amber-950",
                     icons: [
@@ -142,6 +147,7 @@ const ProjectsSection = () => {
                         "An android application that allows its users to see how various paint colors will look in their own living spaces without painting the walls. This application was developed using Java, Kotlin, while implementing the OpenCV library for image processing.",
                     images: ["/image/paintar1.png", "/image/paintar2.png", "/image/paintar3.png"],
                     date: "January 2023 - February 2023",
+                    direction: "flex-row",
                     github: "https://github.com/RBLSNico/PaintAR",
                     gradient: "bg-gradient-to-r from-emerald-700 to-green-950",
                     icons: [
@@ -157,6 +163,7 @@ const ProjectsSection = () => {
                         "This portfolio was made with ❤️ using Next.js, React, Tailwind CSS, and GSAP for the animations.",
                     images: ["/image/portfolio1.png", "/image/portfolio2.png", "/image/portfolio3.png"],
                     date: "February 2025",
+                    direction: "flex-col",
                     github: "https://github.com/RBLSNico/rblsn-portfolio",
                     gradient: "bg-gradient-to-r from-slate-800 to-gray-950",
                     icons: [
@@ -172,7 +179,7 @@ const ProjectsSection = () => {
                     ref={(el) => {
                         if (el) projectsRef.current[index] = el;
                     }}
-                    className={`md:flex-row flex flex-col items-center justify-center gap-5 p-10 rounded-xl ${project.gradient} min-h-[80vh]`}
+                    className={`flex md:${project.direction} flex-col items-center justify-center gap-5 p-10 rounded-xl ${project.gradient}`}
                     id={project.id}
                 >
                     {/* Carousel Section */}

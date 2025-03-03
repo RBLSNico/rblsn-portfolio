@@ -22,7 +22,7 @@ const Header: React.FC = () => {
         if (!headerRef.current) return;
 
         gsap.to(headerRef.current, {
-            width: 'auto',
+            width: '40%',
             scrollTrigger: {
                 trigger: headerRef.current,
                 start: 'top top',
@@ -116,12 +116,12 @@ const Header: React.FC = () => {
     return (
         <>
             <header ref={headerRef} className="w-full sticky top-4 mx-auto flex flex-row items-center justify-between px-6 py-4 backdrop-blur-lg bg-white/30 rounded-full border border-[var(--primary-blue)] shadow-md z-50 transition-all duration-300 hover:shadow-lg">
-                <div className="md:hidden flex items-center justify-center ml-2">
+                <div className="lg:hidden flex items-center justify-center ml-2">
                     {/* <img src="/svg/rblsn.svg" alt="RBLS logo" className="w-10 h-10" /> */}
                     <DarkModeToggle />
                 </div>
 
-                <nav className="hidden md:flex items-center justify-between w-full px-5">
+                <nav className="hidden lg:flex items-center justify-between w-full px-5">
                     <div className="flex space-x-8">
                         {navLinks.slice(0, 2).map((link: NavLink) => (
                             <a
@@ -162,7 +162,7 @@ const Header: React.FC = () => {
 
                 {/* Mobile menu button */}
                 <button
-                    className="md:hidden text-[var(--primary-blue)] focus:outline-none p-2 transition-transform duration-300"
+                    className="lg:hidden text-[var(--primary-blue)] focus:outline-none p-2 transition-transform duration-300"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-expanded={isMobileMenuOpen}
                     aria-label="Toggle navigation menu"
@@ -181,7 +181,7 @@ const Header: React.FC = () => {
 
             {/* Mobile Menu Dropdown */}
             <div
-                className={`mobile-menu md:hidden fixed top-20 left-4 right-4 rounded-xl backdrop-blur-lg bg-white/90 shadow-lg z-40 border border-[var(--primary-blue)] transition-all duration-300 ${isMobileMenuOpen
+                className={`mobile-menu lg:hidden fixed top-20 left-4 right-4 rounded-xl backdrop-blur-lg bg-white/90 shadow-lg z-40 border border-[var(--primary-blue)] transition-all duration-300 ${isMobileMenuOpen
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 -translate-y-4 pointer-events-none'
                     }`}
