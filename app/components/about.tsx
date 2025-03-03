@@ -157,7 +157,7 @@ const AboutSection = () => {
                 </div>
             </div>
             <h1 ref={stackTitleRef} className="text-(--primary-blue) text-3xl font-bold text-center">Current Stack</h1>
-            <div ref={stackGridRef} className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full min-h-100 mt-5">
+            <div ref={stackGridRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full min-h-100 mt-5">
                 <div ref={addToRefs} className="relative bg-gradient-to-r from-orange-500 to-red-600 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
                     <FaHtml5 className="w-16 h-16 mb-2" />
                     <h2 className="sm:opacity-0 relative z-10 opacity-100 group-hover:opacity-100 transition-opacity duration-300">HTML5</h2>

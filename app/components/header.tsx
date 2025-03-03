@@ -22,12 +22,11 @@ const Header: React.FC = () => {
         if (!headerRef.current) return;
 
         gsap.to(headerRef.current, {
-            width: '40%',
-            borderRadius: '40px',
+            width: 'auto',
             scrollTrigger: {
                 trigger: headerRef.current,
                 start: 'top top',
-                scrub: 1,
+                scrub: 0.8,
             },
         });
     }, []);
@@ -116,13 +115,13 @@ const Header: React.FC = () => {
 
     return (
         <>
-            <header ref={headerRef} className="w-[100%] sticky top-4 flex flex-row items-center justify-between px-6 py-4 backdrop-blur-lg bg-white/30 rounded-full border border-[var(--primary-blue)] mx-auto shadow-md z-50 transition-all duration-300 hover:shadow-lg">
+            <header ref={headerRef} className="w-full sticky top-4 mx-auto flex flex-row items-center justify-between px-6 py-4 backdrop-blur-lg bg-white/30 rounded-full border border-[var(--primary-blue)] shadow-md z-50 transition-all duration-300 hover:shadow-lg">
                 <div className="md:hidden flex items-center justify-center ml-2">
                     {/* <img src="/svg/rblsn.svg" alt="RBLS logo" className="w-10 h-10" /> */}
                     <DarkModeToggle />
                 </div>
 
-                <nav className="hidden md:flex items-center justify-between w-full">
+                <nav className="hidden md:flex items-center justify-between w-full px-5">
                     <div className="flex space-x-8">
                         {navLinks.slice(0, 2).map((link: NavLink) => (
                             <a
