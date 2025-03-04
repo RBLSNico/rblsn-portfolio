@@ -9,7 +9,8 @@ import { DiMsqlServer, DiMysql } from "react-icons/di";
 import { TbApi } from "react-icons/tb";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import AccordionItem from "./accordion";
+import AccordionFaha from "./accordionFaha";
+import AccordionKunda from "./accordionKunda";
 
 import {
     Carousel,
@@ -115,7 +116,7 @@ const ProjectsSection = () => {
                 { icon: SiPlesk, name: "Plesk Obsidian" },
                 { icon: FaFigma, name: "Figma" },
             ],
-            accordion: <AccordionItem />
+            accordion: <AccordionFaha />
         },
         {
             title: "Kunda House",
@@ -131,7 +132,8 @@ const ProjectsSection = () => {
                 { icon: FaElementor, name: "Elementor" },
                 { icon: FaHtml5, name: "HTML/CSS" },
                 { icon: IoLogoJavascript, name: "JavaScript" },
-            ]
+            ],
+            accordion: <AccordionKunda />
         },
         {
             title: "Spiralytics, Inc.",
