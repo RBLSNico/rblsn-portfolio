@@ -52,6 +52,8 @@ const ProjectsSection = () => {
     const projectsRef = useRef<HTMLDivElement[]>([]);
     const sectionsRef = useRef<HTMLDivElement[]>([]);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const customRef = useRef(null);
+
     const closeModal = () => setSelectedImage(null);
 
     useEffect(() => {
@@ -239,15 +241,15 @@ const ProjectsSection = () => {
     // Project card component to avoid repetition
     const ProjectCard: React.FC<ProjectCardProps> = ({ item, index, isWorkExperience = false }) => {
         return (
-            <div className={`flex flex-col rounded-xl ${item.gradient}`}>
-                <div
-                    key={index}
-                    ref={(el) => {
-                        if (el) projectsRef.current.push(el);
-                    }}
-                    className={`flex flex-col items-center justify-center gap-5 p-10 w-full ${isWorkExperience ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                    id={item.id}
-                >
+            <div
+                key={index}
+                ref={(el) => {
+                    if (el) projectsRef.current.push(el);
+                }}
+                id={item.id}
+                className={`rounded-xl ${item.gradient}`}
+            >
+                <div className={`flex flex-col items-center gap-5 w-full p-8 ${isWorkExperience ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                     {/* Carousel Section */}
                     <div className="flex items-center justify-center md:w-1/2">
                         <Carousel className="max-w-[85%]">
@@ -331,7 +333,7 @@ const ProjectsSection = () => {
                     <h1 className="text-white text-2xl font-bold">Work Experience</h1>
                 </div>
                 <div className="h-1 w-32 bg-blue-600 rounded-full"></div> */}
-                    <h1 className="text-(--primary-blue) text-3xl font-bold text-center mt-5">Work Experience</h1>
+                    <h1 className="text-(--primary-blue) text-4xl font-extrabold text-center mt-5">Work Experience</h1>
                 </div>
 
                 {/* Work Experience Cards */}
@@ -357,7 +359,7 @@ const ProjectsSection = () => {
                     <h1 className="text-white text-2xl font-bold">Projects</h1>
                 </div>
                 <div className="h-1 w-32 bg-green-600 rounded-full"></div> */}
-                    <h1 className="text-(--primary-blue) text-3xl font-bold text-center">Projects</h1>
+                    <h1 className="text-(--primary-blue) text-4xl font-extrabold text-center">Projects</h1>
                 </div>
 
 
@@ -381,7 +383,7 @@ const ProjectsSection = () => {
                         <img
                             src={selectedImage}
                             alt="Full Screen"
-                            className="max-w-full max-h-full rounded-xl shadow-lg"
+                            className="max-w-full max-h-[90vh] rounded-xl shadow-lg"
                         />
                     </div>
                 </div>

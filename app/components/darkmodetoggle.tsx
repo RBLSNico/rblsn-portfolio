@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 
 const DarkModeToggle: React.FC = () => {
-    const [darkMode, setDarkMode] = useState<boolean | null>(null); // Start as null to avoid SSR mismatch
+    const [darkMode, setDarkMode] = useState<boolean | null>(null);
 
     useEffect(() => {
         // Access localStorage only in useEffect (client-side)

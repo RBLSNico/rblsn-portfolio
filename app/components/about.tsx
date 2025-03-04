@@ -143,20 +143,20 @@ const AboutSection = () => {
 
     return (
         <section id="about" ref={sectionRef} className="flex flex-col justify-center items-center">
-            <h1 ref={titleRef} className="text-(--primary-blue) text-3xl font-bold text-center mt-5">About Me</h1>
+            <h1 ref={titleRef} className="text-(--primary-blue) text-4xl font-extrabold text-center mt-5">About Me</h1>
             <div className="m-0 flex items-center justify-center p-10 flex-col gap-10 md:flex-row">
                 <div ref={profileRef} className="w-full items-center justify-center flex">
                     <img src="/image/rblsnico_img.jpg" className="max-w-[300px] rounded-full"></img>
                 </div>
                 <div ref={bioRef} className="w-full">
                     <p className="text-center sm:text-start">
-                        I am Gabriel Nicolas Labutap Robles, I graduated <strong>cum laude</strong> from National University Laguna with a Bachelor's Degree in Information Technology in 2024 and won the <strong>Best Capstone Project award</strong> for our project, <a href="#PaintAR" className="font-bold">PaintAR</a>.
+                        I am Gabriel Nicolas Labutap Robles, I graduated <strong>cum laude</strong> from National University Laguna with a Bachelor's Degree in Information Technology in 2024 and won the <strong>Best Capstone Project Award</strong> for our project, <a href="#PaintAR" className="font-bold">PaintAR</a>.
                         <br /><br />
                         I have extensive experience in creating and maintaining WordPress sites and am actively upskilling in modern frameworks to broaden my expertise and enhance my contributions to impactful projects.
                     </p>
                 </div>
             </div>
-            <h1 ref={stackTitleRef} className="text-(--primary-blue) text-3xl font-bold text-center mt-5">Current Stack</h1>
+            <h1 ref={stackTitleRef} className="text-(--primary-blue) text-4xl font-extrabold text-center mt-5">Current Stack</h1>
             <div ref={stackGridRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full min-h-100 mt-5">
                 <div ref={addToRefs} className="relative bg-gradient-to-r from-orange-500 to-red-600 p-6 rounded-lg text-white text-center text-xl overflow-hidden group flex flex-col items-center justify-center">
                     <FaHtml5 className="w-16 h-16 mb-2" />
