@@ -81,14 +81,6 @@ body {
   opacity: 0;
 }
 
-.animate-accordion-up {
-  animation: accordionUp 0.2s ease-out;
-}
-
-.animate-accordion-down {
-  animation: accordionDown 0.2s ease-out;
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -103,21 +95,21 @@ body {
 
 @keyframes accordionDown {
   from {
-    height: 0;
+    transform: translateY(0);
   }
 
   to {
-    height: var(200px);
+    transform: translateY(-20px);
   }
 }
 
 @keyframes accordionUp {
   from {
-    height: var(200px);
+    transform: translateY(20px);
   }
 
   to {
-    height: 0;
+    transform: translateY(0px);
   }
 }
 
