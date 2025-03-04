@@ -2,7 +2,7 @@ import { FaLinkedin, FaGithub, FaGoogle } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className="bg-(--primary-blue) dark:bg-[#001F3F] text-white py-5">
+        <footer className="bg-(--primary-blue) dark:bg-[#001F3F] text-white py-5 rounded-t-4xl">
             <div className="container flex flex-col items-center">
                 <p className="text-center text-sm mb-3">© 2025 Gabriel Nicolas Labutap Robles. All rights reserved.</p>
                 <div className="flex space-x-4">

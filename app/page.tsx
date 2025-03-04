@@ -1,9 +1,9 @@
 'use client'
 import Header from "./components/header";
-import HomeSection from "./components/home"
-import AboutSection from "./components/about"
+import HomeSection from "./components/home";
+import AboutSection from "./components/about";
 import ProjectsSection from "./components/projects";
-import ResumeSection from "./components/resume"
+import ResumeSection from "./components/resume";
 
 
 export default function Home() {
