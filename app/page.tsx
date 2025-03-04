@@ -4,6 +4,7 @@ import HomeSection from "./components/home";
 import AboutSection from "./components/about";
 import ProjectsSection from "./components/projects";
 import ResumeSection from "./components/resume";
+import ContactForm from "./components/contactForm"
 
 
 export default function Home() {
@@ -13,7 +14,8 @@ export default function Home() {
       <HomeSection />
       <AboutSection />
       <ProjectsSection />
-      <ResumeSection />
+      {/* <ResumeSection /> */}
+      <ContactForm />
     </main>
   );
 }
