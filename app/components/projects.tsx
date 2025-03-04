@@ -99,7 +99,7 @@ const ProjectsSection = () => {
         {
             title: "FindaHost",
             description:
-                "As the lead WordPress Developer for FindaHost, I was tasked to build, optimize, and maintain the whole website, ensuring seamless functionality, Search Engine Optimization (SEO), and enhanced user experience.",
+                "As the primary WordPress Developer for FindaHost, I was tasked to build, optimize, and maintain the whole website, ensuring seamless functionality, Search Engine Optimization (SEO), and enhanced user experience.",
             position: "Wordress Developer",
             images: ["/image/findahost1.png", "/image/findahost2.png", "/image/findahost3.png", "/image/fahalp1.png", "/image/fahalp2.png", "/image/fahalp3.png", "/image/fahalp4.png"],
             date: "June 2024 - Present",
