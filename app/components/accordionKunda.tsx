@@ -62,7 +62,6 @@ const AccordionWithCarousel = () => {
                     onClick={closeModal} // Close when clicking outside
                 >
                     <div>
-                        <IoMdClose className="float-end cursor-pointer w-10" onClick={closeModal} />
                         <img
                             src={selectedImage}
                             alt="Full Screen"

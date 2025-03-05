@@ -57,7 +57,7 @@ const ProjectsSection = () => {
     const closeModal = () => setSelectedImage(null);
 
     useEffect(() => {
-        projectsRef.current.forEach((project, index) => {
+        projectsRef.current.forEach((project) => {
             gsap.fromTo(
                 project,
                 { opacity: 0, y: 50 },
@@ -379,7 +379,6 @@ const ProjectsSection = () => {
                     onClick={closeModal} // Close when clicking outside
                 >
                     <div>
-                        <IoMdClose className="float-end cursor-pointer w-10" onClick={closeModal} />
                         <img
                             src={selectedImage}
                             alt="Full Screen"
