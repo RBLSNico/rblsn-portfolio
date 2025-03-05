@@ -98,10 +98,10 @@ const ProjectsSection = () => {
             });
         }
 
-        // Cleanup function
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
+        // // Cleanup function
+        // return () => {
+        //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        // };
     }, [selectedImage]);
 
     // Work Experience data

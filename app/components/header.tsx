@@ -115,7 +115,7 @@ const Header: React.FC = () => {
 
     return (
         <>
-            <header ref={headerRef} className="w-full sticky top-4 mx-auto flex flex-row items-center justify-between px-3 py-4 backdrop-blur-lg bg-white/30 rounded-full border border-[var(--primary-blue)] shadow-md z-50 transition-all duration-300 hover:shadow-lg">
+            <header ref={headerRef} className="w-full sticky top-4 mx-auto flex flex-row items-center justify-between px-3 py-4 backdrop-blur-lg bg-white/30 rounded-full border border-(--primary-blue) shadow-md z-50 transition-all duration-300 hover:shadow-lg">
                 <div className="lg:hidden flex items-center justify-center ml-2">
                     {/* <img src="/svg/rblsn.svg" alt="RBLS logo" className="w-10 h-10" /> */}
                     <DarkModeToggle />
