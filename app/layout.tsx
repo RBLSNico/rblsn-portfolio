@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Sigmar, PT_Sans_Narrow } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/footer";
-import Gtm from "./components/gtm.jsx"
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -34,7 +33,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Gtm />
         <link rel="icon" href="/svg/rblsn.svg" />
       </head>
       <body
