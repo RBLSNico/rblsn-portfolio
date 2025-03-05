@@ -13,6 +13,13 @@ interface NavLink {
     sectionId: string;
 }
 
+const navLinks: NavLink[] = [
+    { href: "#home", label: "HOME", sectionId: "home" },
+    { href: "#about", label: "ABOUT", sectionId: "about" },
+    { href: "#projects", label: "WORKS", sectionId: "projects" },
+    { href: "#contact", label: "CONTACT", sectionId: "contact" }
+];
+
 const Header: React.FC = () => {
     const [activeLink, setActiveLink] = useState<string>('');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -21,22 +28,61 @@ const Header: React.FC = () => {
     useEffect(() => {
         if (!headerRef.current) return;
 
-        gsap.to(headerRef.current, {
-            width: '40%',
-            scrollTrigger: {
-                trigger: headerRef.current,
-                start: 'top top',
-                scrub: 0.8,
-            },
-        });
-    }, []);
+        // Create a scroll-based width animation
+        const updateHeaderSize = () => {
+            const scrollPosition = window.scrollY;
 
-    const navLinks: NavLink[] = [
-        { href: "#home", label: "HOME", sectionId: "home" },
-        { href: "#about", label: "ABOUT", sectionId: "about" },
-        { href: "#projects", label: "WORKS", sectionId: "projects" },
-        { href: "#contact", label: "CONTACT", sectionId: "contact" }
-    ];
+            if (scrollPosition === 0) {
+                // At the top of the page, reset to full width
+                gsap.to(headerRef.current, {
+                    width: '100%',
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+            } else {
+                // When scrolled, reduce width
+                gsap.to(headerRef.current, {
+                    width: '40%',
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+            }
+        };
+
+        // Initial sizing
+        updateHeaderSize();
+
+        // Add scroll event listener
+        window.addEventListener('scroll', updateHeaderSize);
+
+        // Create ScrollTrigger for additional responsiveness
+        ScrollTrigger.create({
+            trigger: document.body,
+            start: 'top top',
+            end: 'bottom bottom',
+            onUpdate: (self) => {
+                if (headerRef.current) {
+                    const progress = self.progress;
+                    const currentWidth = gsap.getProperty(headerRef.current, 'width');
+
+                    // Dynamically adjust width based on scroll progress
+                    if (progress > 0) {
+                        gsap.to(headerRef.current, {
+                            width: '40%',
+                            duration: 0.3,
+                            ease: 'power2.out'
+                        });
+                    }
+                }
+            }
+        });
+
+        // Cleanup
+        return () => {
+            window.removeEventListener('scroll', updateHeaderSize);
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+    }, []);
 
     // Function to handle scroll and update active link
     useEffect(() => {
@@ -115,7 +161,10 @@ const Header: React.FC = () => {
 
     return (
         <>
-            <header ref={headerRef} className="w-full sticky top-4 mx-auto flex flex-row items-center justify-between px-3 py-4 backdrop-blur-lg bg-white/30 rounded-full border border-(--primary-blue) shadow-md z-50 transition-all duration-300 hover:shadow-lg">
+            <header
+                ref={headerRef}
+                className="w-full sticky top-4 mx-auto flex flex-row items-center justify-between px-3 py-4 backdrop-blur-lg bg-white/30 rounded-full border border-(--primary-blue) shadow-md z-50 transition-all duration-300 hover:shadow-lg"
+            >
                 <div className="lg:hidden flex items-center justify-center ml-2">
                     {/* <img src="/svg/rblsn.svg" alt="RBLS logo" className="w-10 h-10" /> */}
                     <DarkModeToggle />
