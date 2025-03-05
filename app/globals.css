@@ -1,10 +1,35 @@
 @import "tailwindcss";
+
+@plugin "tailwindcss-animate";
 @custom-variant dark (&:is(.dark *));
 
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
 }
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
 
 html {
   scroll-behavior: smooth;
@@ -93,25 +118,6 @@ body {
   }
 }
 
-@keyframes accordionDown {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes accordionUp {
-  from {
-    transform: translateY(20px);
-  }
-
-  to {
-    transform: translateY(0px);
-  }
-}
 
 .dark {
   --background: oklch(0.145 0 0);
@@ -147,6 +153,7 @@ body {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+  --accent: oklch(0.269 0 0);
 }
 
 @theme inline {

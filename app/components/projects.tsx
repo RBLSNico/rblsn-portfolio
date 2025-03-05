@@ -4,13 +4,11 @@ import { SiKotlin, SiTypescript, SiTailwindcss, SiOpencv, SiSwagger, SiPhp, SiPl
 import { PiFileCSharp } from "react-icons/pi";
 import { RiNextjsFill } from "react-icons/ri";
 import { IoLogoJavascript } from "react-icons/io5";
-import { IoMdClose } from "react-icons/io";
 import { DiMsqlServer, DiMysql } from "react-icons/di";
 import { TbApi } from "react-icons/tb";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import AccordionFaha from "./accordionFaha";
-import AccordionKunda from "./accordionKunda";
+import AccordionItems from "./accordionItems";
 
 import {
     Carousel,
@@ -126,7 +124,32 @@ const ProjectsSection = () => {
                 { icon: SiPlesk, name: "Plesk Obsidian" },
                 { icon: FaFigma, name: "Figma" },
             ],
-            accordion: <AccordionFaha />
+            accordion: <AccordionItems>
+                <Carousel>
+                    <CarouselContent className="flex-col md:flex-row">
+                        <CarouselItem className="basis-1/2">
+                            <h2 className="text-center py-2">Before</h2>
+                            <img
+                                src="/image/faha_metrix_before.png"
+                                alt="sample works"
+                                className="rounded-xl w-full h-auto cursor-pointer"
+                                onClick={() => setSelectedImage("/image/faha_metrix_before.png")} // Open modal on click
+                            />
+                        </CarouselItem>
+                        <CarouselItem className="basis-1/2">
+                            <h2 className="text-center py-2">After</h2>
+                            <img
+                                src="/image/faha_metrix_after.png"
+                                alt="sample works"
+                                className="rounded-xl w-full h-auto cursor-pointer"
+                                onClick={() => setSelectedImage("/image/faha_metrix_after.png")} // Open modal on click
+                            />
+                        </CarouselItem>
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </Carousel>
+            </AccordionItems>
         },
         {
             title: "Kunda House",
@@ -143,7 +166,32 @@ const ProjectsSection = () => {
                 { icon: FaHtml5, name: "HTML/CSS" },
                 { icon: IoLogoJavascript, name: "JavaScript" },
             ],
-            accordion: <AccordionKunda />
+            accordion: <AccordionItems>
+                <Carousel>
+                    <CarouselContent className="flex-col md:flex-row">
+                        <CarouselItem className="basis-1/2">
+                            <h2 className="text-center py-2">Before</h2>
+                            <img
+                                src="/image/kunda_before.png"
+                                alt="sample works"
+                                className="rounded-xl w-full h-auto cursor-pointer"
+                                onClick={() => setSelectedImage("/image/kunda_before.png")} // Open modal on click
+                            />
+                        </CarouselItem>
+                        <CarouselItem className="basis-1/2">
+                            <h2 className="text-center py-2">After</h2>
+                            <img
+                                src="/image/kunda_after.png"
+                                alt="sample works"
+                                className="rounded-xl w-full h-auto cursor-pointer"
+                                onClick={() => setSelectedImage("/image/kunda_after.png")} // Open modal on click
+                            />
+                        </CarouselItem>
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </Carousel>
+            </AccordionItems>
         },
         {
             title: "Spiralytics, Inc.",
@@ -255,7 +303,7 @@ const ProjectsSection = () => {
                     if (el) projectsRef.current.push(el);
                 }}
                 id={item.id}
-                className={`rounded-xl ${item.gradient}`}
+                className={`rounded-xl ${item.gradient} flex-col w-full flex`}
             >
                 <div className={`flex flex-col items-center gap-5 w-full p-8 ${isWorkExperience ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                     {/* Carousel Section */}
