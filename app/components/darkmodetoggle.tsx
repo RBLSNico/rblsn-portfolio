@@ -5,16 +5,23 @@ const DarkModeToggle: React.FC = () => {
     const [darkMode, setDarkMode] = useState<boolean | null>(null);
 
     useEffect(() => {
-        // Access localStorage only in useEffect (client-side)
-        const storedTheme = localStorage.getItem("theme") === "dark";
-        setDarkMode(storedTheme);
+        const storedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches; // Define it here
 
         if (storedTheme) {
+            setDarkMode(storedTheme === "dark");
+        } else {
+            setDarkMode(prefersDark);
+            localStorage.setItem("theme", prefersDark ? "dark" : "light");
+        }
+
+        if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
             document.documentElement.classList.add("dark");
         } else {
             document.documentElement.classList.remove("dark");
         }
     }, []);
+
 
     const toggleDarkMode = () => {
         const newMode = !darkMode;
