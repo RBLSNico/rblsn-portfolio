@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { FaGithub, FaJava, FaAndroid, FaHtml5, FaAngular, FaDatabase, FaWordpress, FaReact, FaBootstrap, FaElementor, FaCloudflare, FaCcStripe, FaFigma, FaBriefcase, FaLaptopCode } from "react-icons/fa";
+import { FaGithub, FaJava, FaAndroid, FaHtml5, FaAngular, FaDatabase, FaWordpress, FaReact, FaBootstrap, FaElementor, FaCloudflare, FaCcStripe, FaFigma, FaBriefcase, FaLaptop } from "react-icons/fa";
 import { SiKotlin, SiTypescript, SiTailwindcss, SiOpencv, SiSwagger, SiPhp, SiPlesk, SiChartdotjs } from "react-icons/si";
 import { PiFileCSharp } from "react-icons/pi";
 import { RiNextjsFill } from "react-icons/ri";
@@ -353,20 +353,23 @@ const ProjectsSection = () => {
                             })}
                         </div>
 
-                        {isWorkExperience ? (
+                        {/* Link Button Rendering */}
+                        {(item.github || item.link) && (
                             <a
-                                href={item.link}
-                                className="flex items-center mt-2 w-fit bg-white text-black rounded-xl px-5 py-3 hover:bg-opacity-80 transition-colors duration-300 ease-in-out"
+                                href={item.github || item.link}
+                                className="flex items-center mt-2 w-fit bg-white hover:bg-black hover:text-white text-black rounded-xl px-5 py-3 hover:bg-opacity-80 transition-colors duration-300 ease-in-out"
                             >
-                                Visit Website
-                            </a>
-                        ) : (
-                            <a
-                                href={item.github}
-                                className="flex items-center mt-2 w-fit bg-white text-black rounded-xl px-5 py-3 hover:bg-opacity-80 transition-colors duration-300 ease-in-out"
-                            >
-                                <FaGithub className="mr-2" />
-                                View on GitHub
+                                {item.github ? (
+                                    <>
+                                        <FaGithub className="mr-2" />
+                                        View on GitHub
+                                    </>
+                                ) : (
+                                    <>
+                                        <FaLaptop className="mr-2" />
+                                        Visit Website
+                                    </>
+                                )}
                             </a>
                         )}
                     </div>
