@@ -218,7 +218,7 @@ const ProjectsSection = () => {
                 "A self-contained kiosk ordering system developed to eliminate the manual process of taking orders from students at the university cafeteria, saving time and reducing lines during peak hours. This web application was developed using HTML, CSS, Angular, TypeScript, AJAX, and Microsoft SQL Server.",
             images: ["/image/cafebytes1.png", "/image/cafebytes2.png", "/image/cafebytes3.png"],
             date: "June 2023",
-            github: "https://github.com/RBLSNico/CafebytesAPI",
+            github: "https://github.com/RBLSNico/CafeBytes",
             gradient: "bg-gradient-to-r from-yellow-700 to-amber-950",
             icons: [
                 { icon: FaAngular, name: "Angular" },
