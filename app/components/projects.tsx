@@ -52,49 +52,57 @@ const ProjectsSection = () => {
     const projectsRef = useRef<HTMLDivElement[]>([]);
     const sectionsRef = useRef<HTMLDivElement[]>([]);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
-    const customRef = useRef(null);
+
 
     const closeModal = () => setSelectedImage(null);
 
     useEffect(() => {
-        projectsRef.current.forEach((project) => {
-            gsap.fromTo(
-                project,
-                { opacity: 0, y: 50 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: project,
-                        start: "top 80%",
-                        toggleActions: "play none restart reset",
-                    },
-                    stagger: 0.2,
-                }
-            );
-        });
-
-        // Animation for section headers
-        sectionsRef.current.forEach((section) => {
-            gsap.fromTo(
-                section,
-                { opacity: 0, scale: 0.9 },
-                {
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.8,
-                    ease: "back.out(1.7)",
-                    scrollTrigger: {
-                        trigger: section,
-                        start: "top 85%",
-                        toggleActions: "play none restart reset",
+        // Only run animations on initial mount or page reload
+        if (selectedImage === null) {
+            projectsRef.current.forEach((project) => {
+                gsap.fromTo(
+                    project,
+                    { opacity: 0, y: 50 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: project,
+                            start: "top 80%",
+                            toggleActions: "play none restart reset",
+                        },
+                        stagger: 0.2,
                     }
-                }
-            );
-        });
-    }, []);
+                );
+            });
+
+            // Animation for section headers
+            sectionsRef.current.forEach((section) => {
+                gsap.fromTo(
+                    section,
+                    { opacity: 0, scale: 0.9 },
+                    {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.8,
+                        ease: "back.out(1.7)",
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top 85%",
+                            toggleActions: "play none restart reset",
+                        }
+                    }
+                );
+            });
+        }
+
+        // Cleanup function
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+    }, [selectedImage]);
 
     // Work Experience data
     const workExperience: ProjectItem[] = [

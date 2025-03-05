@@ -82,7 +82,7 @@ const HomeSection = () => {
             </h1>
             <h1
                 ref={subtitleRef}
-                className="text-(--accent) md:text-5xl text-3xl font-bold text-center"
+                className="text-(--accent) md:text-5xl text-4xl font-extrabold text-center"
             >
                 I'm Nico, A Developer
             </h1>
