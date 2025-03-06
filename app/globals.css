@@ -93,14 +93,10 @@ body {
 
 .container {
   max-width: 1140px;
-  /* Set max width */
   margin: 0 auto;
-  /* Center the container */
   padding: 0 20px;
-  /* Optional: Add some horizontal padding */
 }
 
-/* In your global CSS or component CSS */
 .fade-in-up {
   animation: fadeInUp 2s ease forwards;
   opacity: 0;

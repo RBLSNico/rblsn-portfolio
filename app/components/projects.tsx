@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { FaGithub, FaJava, FaAndroid, FaHtml5, FaAngular, FaDatabase, FaWordpress, FaReact, FaBootstrap, FaElementor, FaCloudflare, FaCcStripe, FaFigma, FaBriefcase, FaLaptop } from "react-icons/fa";
+import { FaGithub, FaJava, FaAndroid, FaHtml5, FaAngular, FaDatabase, FaWordpress, FaReact, FaBootstrap, FaElementor, FaCloudflare, FaCcStripe, FaFigma, FaBriefcase, FaLaptop, FaPhp, FaCss3 } from "react-icons/fa";
 import { SiKotlin, SiTypescript, SiTailwindcss, SiOpencv, SiSwagger, SiPhp, SiPlesk, SiChartdotjs } from "react-icons/si";
 import { PiFileCSharp } from "react-icons/pi";
 import { RiNextjsFill } from "react-icons/ri";
@@ -116,11 +116,12 @@ const ProjectsSection = () => {
             icons: [
                 { icon: FaWordpress, name: "WordPress" },
                 { icon: FaElementor, name: "Elementor" },
-                { icon: FaHtml5, name: "HTML/CSS" },
+                { icon: FaHtml5, name: "HTML" },
+                { icon: FaCss3, name: "CSS" },
                 { icon: IoLogoJavascript, name: "JavaScript" },
                 { icon: SiPhp, name: "PHP" },
-                { icon: FaCloudflare, name: "Cloudflare" },
                 { icon: FaCcStripe, name: "Stripe" },
+                { icon: FaCloudflare, name: "Cloudflare" },
                 { icon: SiPlesk, name: "Plesk Obsidian" },
                 { icon: FaFigma, name: "Figma" },
             ],
@@ -163,8 +164,12 @@ const ProjectsSection = () => {
             icons: [
                 { icon: FaWordpress, name: "WordPress" },
                 { icon: FaElementor, name: "Elementor" },
-                { icon: FaHtml5, name: "HTML/CSS" },
+                { icon: FaHtml5, name: "HTML" },
+                { icon: FaCss3, name: "CSS" },
+                { icon: SiPhp, name: "PHP" },
                 { icon: IoLogoJavascript, name: "JavaScript" },
+                { icon: FaCloudflare, name: "Cloudflare" },
+                { icon: SiPlesk, name: "Plesk Obsidian" },
             ],
             accordion: <AccordionItems>
                 <Carousel>
@@ -205,7 +210,8 @@ const ProjectsSection = () => {
             icons: [
                 { icon: FaWordpress, name: "WordPress" },
                 { icon: FaElementor, name: "Elementor" },
-                { icon: FaHtml5, name: "HTML/CSS" },
+                { icon: FaHtml5, name: "HTML" },
+                { icon: FaCss3, name: "CSS" },
                 { icon: IoLogoJavascript, name: "JavaScript" },
             ]
         },
@@ -253,7 +259,8 @@ const ProjectsSection = () => {
             github: "https://github.com/RBLSNico/NUL-QUEUE",
             gradient: "bg-gradient-to-r from-indigo-700 to-blue-950",
             icons: [
-                { icon: FaHtml5, name: "HTML/CSS" },
+                { icon: FaHtml5, name: "HTML" },
+                { icon: FaCss3, name: "CSS" },
                 { icon: DiMysql, name: "Mysql" },
                 { icon: SiPhp, name: "PHP" },
                 { icon: FaBootstrap, name: "Bootstrap" },
@@ -274,6 +281,20 @@ const ProjectsSection = () => {
                 { icon: DiMsqlServer, name: "SQL Server" },
                 { icon: SiSwagger, name: "Swagger UI" },
                 { icon: PiFileCSharp, name: "C#" },
+            ]
+        },
+        {
+            title: "Food Ordering System",
+            description: "An ecommerce website developed to provide a user-friendly interface for customers to browse menus, select items, and place orders seamlessly.",
+            images: ["/image/foodsystem1.png", "/image/foodsystem2.png", "/image/foodsystem3.png", "/image/foodsystem4.png"],
+            date: "March 2024",
+            github: "https://github.com/yourusername/food-ordering-system",
+            gradient: "bg-gradient-to-r from-green-600 to-emerald-600",
+            icons: [
+                { icon: FaHtml5, name: "HTML" },
+                { icon: FaCss3, name: "CSS" },
+                { icon: FaPhp, name: "PHP" },
+                { icon: DiMysql, name: "MySQL" },
             ]
         },
         {

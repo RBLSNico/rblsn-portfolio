@@ -186,11 +186,6 @@ const Header: React.FC = () => {
                     </div>
 
                     <div className="flex items-center justify-center mx-4">
-                        {/* <img
-                            src="/svg/rblsn.svg"
-                            alt="RBLS logo"
-                            className="w-10 h-10 transition-transform duration-300 hover:rotate-12"
-                        /> */}
                         <DarkModeToggle />
                     </div>
 
