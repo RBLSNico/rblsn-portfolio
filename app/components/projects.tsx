@@ -288,7 +288,7 @@ const ProjectsSection = () => {
             description: "An ecommerce website developed to provide a user-friendly interface for customers to browse menus, select items, and place orders seamlessly.",
             images: ["/image/foodsystem1.png", "/image/foodsystem2.png", "/image/foodsystem3.png", "/image/foodsystem4.png"],
             date: "March 2024",
-            github: "https://github.com/yourusername/food-ordering-system",
+            github: "https://github.com/RBLSNico/finals_web_programming--Food-Ordering-System-",
             gradient: "bg-gradient-to-r from-green-600 to-emerald-600",
             icons: [
                 { icon: FaHtml5, name: "HTML" },
