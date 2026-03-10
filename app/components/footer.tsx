@@ -62,7 +62,7 @@ const Footer = () => {
             {/* Copyright */}
             <div className="text-center py-4 border-t border-white/10 mt-10">
                 <p className="text-sm text-white/70">
-                    © 2025 Gabriel Nicolas Labutap Robles. All rights reserved.
+                    © 2026 Gabriel Nicolas Labutap Robles. All rights reserved.
                 </p>
             </div>
         </footer>

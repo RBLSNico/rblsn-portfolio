@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { FaGithub, FaJava, FaAndroid, FaHtml5, FaAngular, FaDatabase, FaWordpress, FaReact, FaBootstrap, FaElementor, FaCloudflare, FaCcStripe, FaFigma, FaBriefcase, FaLaptop, FaPhp, FaCss3 } from "react-icons/fa";
+import { FaGithub, FaJava, FaAndroid, FaHtml5, FaAngular, FaDatabase, FaWordpress, FaReact, FaBootstrap, FaElementor, FaCloudflare, FaCcStripe, FaFigma, FaBriefcase, FaLaptop, FaPhp, FaCss3, FaCpanel, FaShopify } from "react-icons/fa";
 import { SiKotlin, SiTypescript, SiTailwindcss, SiOpencv, SiSwagger, SiPhp, SiPlesk, SiChartdotjs } from "react-icons/si";
 import { PiFileCSharp } from "react-icons/pi";
 import { RiNextjsFill } from "react-icons/ri";
@@ -105,6 +105,48 @@ const ProjectsSection = () => {
     // Work Experience data
     const workExperience: ProjectItem[] = [
         {
+            title: "East TN Web Solutions",
+            description:
+                "As a Part-time Web Developer at East TN Web Solutions, I led the development, redesign, and optimization of multiple client websites. My work focused on front-end development, responsive design, performance optimization, and technical SEO improvements. I served as the lead developer for projects including Ascension Tax Solutions, Zippy Printz, and Garden Gurus, delivering modern, fast, and SEO-friendly websites tailored to each client’s business needs.",
+            position: "Part-time Web Developer",
+            images: ["/image/gardengurus.png", "/image/adamsandsons.png", "/image/mpm.png"],
+            date: "April 2025 - Present",
+            link: "https://etnwebsolutions.com/",
+            gradient: "bg-gradient-to-r from-green-200 to-lime-900",
+            icons: [
+                { icon: FaWordpress, name: "WordPress" },
+                { icon: FaShopify, name: "Shopify" },
+                { icon: FaElementor, name: "Elementor" },
+                { icon: FaHtml5, name: "HTML" },
+                { icon: FaCss3, name: "CSS" },
+                { icon: IoLogoJavascript, name: "JavaScript" },
+                { icon: SiPhp, name: "PHP" },
+                { icon: FaCpanel, name: "Cpanel" },
+                { icon: FaFigma, name: "Figma" },
+            ],
+        },
+        {
+            title: "Skyrocket Studios PH Inc.",
+            description:
+                "As a Junior Web Developer at Skyrocket Studios PH Inc., I was responsible for developing, optimizing, and maintaining multiple company and client websites, ensuring seamless functionality, strong search engine optimization (SEO), and an improved user experience. I led the end-to-end development of the Atalli website and served as the lead developer for J Castles, the largest immersive theme park in the Philippines, where I integrated ticket booking systems, operational workflows, and automation tools.",
+            position: "Junior Web Developer",
+            images: ["/image/JCASTLES.png", "/image/PHINMA.png", "/image/ATALLI.png"],
+            date: "April 2025 - Present",
+            link: "http://skyrocket.ph/",
+            gradient: "bg-gradient-to-r from-purple-950 to-orange-300",
+            icons: [
+                { icon: FaWordpress, name: "WordPress" },
+                { icon: FaShopify, name: "Shopify" },
+                { icon: FaElementor, name: "Elementor" },
+                { icon: FaHtml5, name: "HTML" },
+                { icon: FaCss3, name: "CSS" },
+                { icon: IoLogoJavascript, name: "JavaScript" },
+                { icon: SiPhp, name: "PHP" },
+                { icon: FaCpanel, name: "Cpanel" },
+                { icon: FaFigma, name: "Figma" },
+            ],
+        },
+        {
             title: "FindaHost",
             description:
                 "As the primary WordPress Developer for FindaHost, I was tasked to build, optimize, and maintain the whole website, ensuring seamless functionality, Search Engine Optimization (SEO), and enhanced user experience.",
@@ -158,7 +200,7 @@ const ProjectsSection = () => {
                 "Responsible for maintaining and enhancing Kunda House's existing WordPress website. Improving site speed and SEO performance, successfully restoring full functionality, enhancing speed, and improving search engine visibility. Integrated Beds24 support for property management.",
             position: "Wordress Developer",
             images: ["/image/kundahouse1.png", "/image/kundahouse2.png", "/image/kundahouse3.png"],
-            date: "June 2024 - Present",
+            date: "June 2024 - February 2025",
             link: "https://kunda.house/",
             gradient: "bg-gradient-to-r from-blue-700 to-fuchsia-950",
             icons: [
