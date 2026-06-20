@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaLinkedin, FaGithub, FaGoogle, FaDownload, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaDownload, FaEnvelope } from "react-icons/fa";
 
 const HomeSection = () => {
     const sectionRef = useRef(null);
@@ -21,111 +21,140 @@ const HomeSection = () => {
             },
         });
 
-        // Animate section background
         tl.fromTo(sectionRef.current,
-            { opacity: 0, scale: 0.9 },
-            { opacity: 1, scale: 1, duration: 0.8 }
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.6 }
         );
 
-        // Animate first title
         tl.fromTo(titleRef.current,
-            { y: -50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.5 },
-            "-=0.4"
-        );
-
-        // Animate name/subtitle
-        tl.fromTo(subtitleRef.current,
-            { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.5 },
+            { y: -30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.4 },
             "-=0.3"
         );
 
-        // Animate paragraph
-        tl.fromTo(paragraphRef.current,
-            { opacity: 0 },
-            { opacity: 1, duration: 0.7 },
+        tl.fromTo(subtitleRef.current,
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.4 },
             "-=0.2"
         );
 
-        // Animate button
+        tl.fromTo(paragraphRef.current,
+            { opacity: 0 },
+            { opacity: 1, duration: 0.5 },
+            "-=0.2"
+        );
+
         tl.fromTo(buttonRef.current,
-            { opacity: 0, scale: 0.8 },
-            { opacity: 1, scale: 1, duration: 0.5 },
-            "-=0.4"
+            { opacity: 0 },
+            { opacity: 1, duration: 0.4 },
+            "-=0.2"
         );
 
-        // Animate button section
         tl.fromTo(buttonSectionRef.current,
-            { opacity: 0, scale: 0.8 },
-            { opacity: 1, scale: 1, duration: 0.5 },
-            "-=0.4"
+            { opacity: 0 },
+            { opacity: 1, duration: 0.4 },
+            "-=0.3"
         );
 
-        // Cleanup function
         return () => {
             tl.kill();
         };
     }, []);
 
-
     return (
         <section
             ref={sectionRef}
-            className="bg-(--primary-blue) dark:bg-[#001F3F] rounded-xl flex flex-col items-center p-10 gap-5"
+            className="brutal-box flex flex-col p-4 sm:p-6 md:p-10 gap-6 bg-[var(--surface)] w-full min-w-0 overflow-hidden"
         >
-            <h1
-                ref={titleRef}
-                className="text-white text-3xl font-semibold text-center"
-            >
-                Hi,
-            </h1>
-            <h1
-                ref={subtitleRef}
-                className="text-[#EAD8B1] md:text-5xl text-4xl font-extrabold text-center"
-            >
-                I'm Nico, A Developer
-            </h1>
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b-3 border-[var(--border-brutal)] pb-4">
+                <span className="mono-label">USER_PROFILE</span>
+                <div className="flex flex-wrap gap-2 justify-end">
+                    <span className="status-pill status-pill--lime">AVAILABLE</span>
+                    <span className="status-pill status-pill--cyan">PH 🇵🇭</span>
+                </div>
+            </div>
+
+            <div className="flex flex-col items-start gap-4 w-full min-w-0">
+                <p
+                    ref={titleRef}
+                    className="font-[family-name:var(--font-ibm-plex-mono)] text-xs sm:text-sm uppercase tracking-wide sm:tracking-widest text-[var(--muted-foreground)] break-words"
+                >
+                    QUERY: WHO_IS_NICO<span className="cursor-blink" />
+                </p>
+
+                <h1
+                    ref={subtitleRef}
+                    className="display-title text-[2rem] sm:text-5xl md:text-7xl lg:text-8xl leading-[0.9] w-full"
+                >
+                    Gabriel
+                    <br />
+                    <span className="text-[var(--accent-2)]">Nicolas</span>
+                    <br />
+                    <span className="text-[var(--accent)]">Robles</span>
+                </h1>
+
+                <div className="flex flex-wrap gap-2 mt-2">
+                    <span className="status-pill status-pill--neutral">DEVELOPER</span>
+                    <span className="status-pill status-pill--pink">WEB</span>
+                    <span className="status-pill status-pill--cyan">FULL-STACK</span>
+                </div>
+            </div>
+
             <p
                 ref={paragraphRef}
-                className="text-white text-center max-w-3xl"
+                className="text-base md:text-lg max-w-2xl border-l-4 border-[var(--accent)] pl-4 leading-relaxed"
             >
-                I specialize in creating and designing websites. I enjoy the process of starting from scratch and improving continuously. Learning is a passion of mine, and I always welcome a good challenge.
+                I specialize in creating and designing websites. I enjoy starting from scratch and improving continuously. Learning is a passion — I always welcome a good challenge.
             </p>
-            <div ref={buttonRef} className='flex flex-col items-center justify-center gap-3'>
+
+            <div ref={buttonRef} className="flex flex-col items-start gap-4">
                 <a
                     href="https://www.linkedin.com/in/gabriel-nicolas-robles-b2027b24b/"
-                    className="flex items-center w-fit text-white font-semibold rounded-3xl bg-linear-to-tr from-blue-600 to-blue-400 px-5 py-3 transition-all transform ease-in-out hover:scale-105 duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="brutal-btn"
                 >
-
-                    <FaLinkedin className="mr-2" />
-                    Let's Connect
+                    <FaLinkedin />
+                    Connect
                 </a>
-                <div ref={buttonSectionRef} className='flex flex-row items-center justify-center gap-5'>
+
+                <div ref={buttonSectionRef} className="flex flex-wrap items-center gap-3">
                     <a
                         href="https://github.com/RBLSNico"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition-all duration-300 ease-in-out transform hover:scale-110"
+                        className="brutal-btn brutal-btn-outline"
+                        aria-label="GitHub"
                     >
-                        <FaGithub className="h-8 w-8 text-white" />
+                        <FaGithub />
+                        GitHub
                     </a>
                     <a
                         href="https://drive.google.com/file/d/1nqemKt1QhPeoC9v5YQE6GbrCAuG-Y_7q/view?usp=sharing"
-                        className="flex items-center text-white font-semibold rounded-3xl bg-white/10 px-5 py-3 transform hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-105"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="brutal-btn brutal-btn-outline"
                     >
-                        <FaDownload className="mr-2" />
+                        <FaDownload />
                         Resume
                     </a>
                     <a
                         href="mailto:roblesgabrielnicolas@gmail.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition-all duration-300 ease-in-out transform hover:scale-110"
+                        className="brutal-btn brutal-btn-pink"
+                        aria-label="Email"
                     >
-                        <FaEnvelope className="h-8 w-8 text-white" />
+                        <FaEnvelope />
+                        Email
                     </a>
                 </div>
+            </div>
+
+            <div className="font-[family-name:var(--font-ibm-plex-mono)] text-[0.6rem] sm:text-[0.65rem] uppercase tracking-wide sm:tracking-widest text-[var(--muted-foreground)] border-t-2 border-dashed border-[var(--border-brutal)] pt-4 mt-2 break-words leading-relaxed">
+                <span className="block sm:inline">FILES_LOADED: 4_SECTIONS</span>
+                <span className="hidden sm:inline"> — </span>
+                <span className="block sm:inline">LAST_UPDATE: 2025</span>
+                <span className="hidden sm:inline"> — </span>
+                <span className="block sm:inline">BUILD: NEXT.JS_16</span>
             </div>
         </section>
     );

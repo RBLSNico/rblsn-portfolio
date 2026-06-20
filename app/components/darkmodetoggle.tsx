@@ -6,7 +6,7 @@ const DarkModeToggle: React.FC = () => {
 
     useEffect(() => {
         const storedTheme = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches; // Define it here
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
         if (storedTheme) {
             setDarkMode(storedTheme === "dark");
@@ -22,7 +22,6 @@ const DarkModeToggle: React.FC = () => {
         }
     }, []);
 
-
     const toggleDarkMode = () => {
         const newMode = !darkMode;
         setDarkMode(newMode);
@@ -35,14 +34,15 @@ const DarkModeToggle: React.FC = () => {
         }
     };
 
-    if (darkMode === null) return null; // Prevent rendering until hydration is complete
+    if (darkMode === null) return null;
 
     return (
         <button
             onClick={toggleDarkMode}
-            className="p-2 rounded-full bg-gray-200 dark:bg-[#001F3F] text-[#001F3F] cursor-pointer dark:text-white transition-all duration-300 hover:rotate-20"
+            className="p-2 border-2 border-[var(--border-brutal)] bg-[var(--surface-2)] text-[var(--foreground)] cursor-pointer shadow-[2px_2px_0_var(--border-brutal)] hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[3px_3px_0_var(--border-brutal)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all duration-100"
+            aria-label="Toggle dark mode"
         >
-            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+            {darkMode ? <Sun size={16} /> : <Moon size={16} />}
         </button>
     );
 };

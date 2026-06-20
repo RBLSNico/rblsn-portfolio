@@ -7,10 +7,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Send, CheckCircle, AlertTriangle } from 'lucide-react';
 
-// Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
 
-// Define the form input types
 interface ContactFormInputs {
   name: string;
   email: string;
@@ -22,7 +20,6 @@ export default function ContactPage() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  // Refs for GSAP animations
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
@@ -45,31 +42,11 @@ export default function ContactPage() {
       },
     });
 
-    // Animate title
-    tl.fromTo(titleRef.current,
-      { y: -50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.5 },
-      "-=0.4"
-    );
+    tl.fromTo(titleRef.current, { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }, "-=0.2");
+    tl.fromTo(subtitleRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }, "-=0.2");
+    tl.fromTo(formRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, "-=0.2");
 
-    // Animate subtitle
-    tl.fromTo(subtitleRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.5 },
-      "-=0.3"
-    );
-
-    // Animate form
-    tl.fromTo(formRef.current,
-      { opacity: 0, scale: 0.9 },
-      { opacity: 1, scale: 1, duration: 0.5 },
-      "-=0.2"
-    );
-
-    // Cleanup function
-    return () => {
-      tl.kill();
-    };
+    return () => { tl.kill(); };
   }, []);
 
   const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
@@ -79,18 +56,14 @@ export default function ContactPage() {
     try {
       const response = await fetch('/api/send-email', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to send message');
-      }
+      if (!response.ok) throw new Error('Failed to send message');
 
       setSubmitSuccess(true);
-      reset(); // Clear form
+      reset();
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : 'An unknown error occurred');
     } finally {
@@ -98,50 +71,42 @@ export default function ContactPage() {
     }
   };
 
+  const inputClass = "w-full px-4 py-3 border-3 border-[var(--border-brutal)] bg-[var(--background)] text-[var(--foreground)] font-[family-name:var(--font-ibm-plex-mono)] text-sm focus:outline-none focus:shadow-[3px_3px_0_var(--accent)] transition-shadow duration-100 placeholder:text-[var(--muted-foreground)]";
+
   return (
     <section
       ref={sectionRef}
       id="contact"
-      className="min-h-1/2 flex flex-col items-center justify-center px-4 py-12 rounded-xl"
+      className="flex flex-col items-center px-0 py-8 w-full min-w-0"
     >
-      <div className="w-full max-w-md space-y-8">
-        <div className="text-center">
-          <h1
-            ref={titleRef}
-            className="text-4xl font-extrabold text-(--primary-blue)"
-          >
-            Contact Me
-          </h1>
-          <p
-            ref={subtitleRef}
-            className="mt-2 text-sm"
-          >
-            Have a question or want to work together? Send me a message.
+      <div className="w-full max-w-2xl space-y-6 min-w-0">
+        <div className="text-center md:text-left">
+          <span className="mono-label">CONTACT_FORM</span>
+          <h2 ref={titleRef} className="section-title mt-2">Contact Me</h2>
+          <p ref={subtitleRef} className="mt-3 text-sm text-[var(--muted-foreground)] font-[family-name:var(--font-ibm-plex-mono)] uppercase tracking-wider">
+            QUERY: SEND_MESSAGE → RESPONSE: ASAP
           </p>
         </div>
 
-        <div
-          ref={formRef}
-          className="bg-white shadow-2xl rounded-2xl p-8 border border-gray-100"
-        >
+        <div ref={formRef} className="brutal-box p-4 sm:p-6 md:p-8 bg-[var(--surface)] w-full min-w-0">
           {submitSuccess && (
-            <div className="flex items-center bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-4">
-              <CheckCircle className="mr-3 h-6 w-6" />
-              Your message was sent successfully!
+            <div className="flex items-center border-3 border-[var(--accent)] bg-[var(--accent)] text-[var(--accent-foreground)] px-4 py-3 mb-6 font-[family-name:var(--font-ibm-plex-mono)] text-xs uppercase tracking-widest font-bold">
+              <CheckCircle className="mr-3 h-5 w-5 shrink-0" />
+              MESSAGE_SENT — SUCCESS
             </div>
           )}
 
           {submitError && (
-            <div className="flex items-center bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4">
-              <AlertTriangle className="mr-3 h-6 w-6" />
-              {submitError}
+            <div className="flex items-center border-3 border-[var(--destructive)] bg-[var(--destructive)] text-white px-4 py-3 mb-6 font-[family-name:var(--font-ibm-plex-mono)] text-xs uppercase tracking-widest font-bold">
+              <AlertTriangle className="mr-3 h-5 w-5 shrink-0" />
+              ERROR: {submitError}
             </div>
           )}
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                Name
+              <label htmlFor="name" className="block font-[family-name:var(--font-ibm-plex-mono)] text-[0.65rem] font-bold uppercase tracking-widest mb-2">
+                FIELD: NAME *
               </label>
               <input
                 id="name"
@@ -150,17 +115,17 @@ export default function ContactPage() {
                   required: 'Name is required',
                   minLength: { value: 2, message: 'Name must be at least 2 characters' }
                 })}
-                className="w-full px-4 py-3 border text-gray-700 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
-                placeholder="Your name"
+                className={inputClass}
+                placeholder="YOUR_NAME"
               />
               {errors.name && (
-                <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+                <p className="mt-1 text-xs text-[var(--destructive)] font-[family-name:var(--font-ibm-plex-mono)] uppercase">{errors.name.message}</p>
               )}
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email
+              <label htmlFor="email" className="block font-[family-name:var(--font-ibm-plex-mono)] text-[0.65rem] font-bold uppercase tracking-widest mb-2">
+                FIELD: EMAIL *
               </label>
               <input
                 id="email"
@@ -172,54 +137,50 @@ export default function ContactPage() {
                     message: "Invalid email address"
                   }
                 })}
-                className="w-full px-4 py-3 border text-gray-700 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
-                placeholder="email@example.com"
+                className={inputClass}
+                placeholder="EMAIL@DOMAIN.COM"
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                <p className="mt-1 text-xs text-[var(--destructive)] font-[family-name:var(--font-ibm-plex-mono)] uppercase">{errors.email.message}</p>
               )}
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                Message
+              <label htmlFor="message" className="block font-[family-name:var(--font-ibm-plex-mono)] text-[0.65rem] font-bold uppercase tracking-widest mb-2">
+                FIELD: MESSAGE *
               </label>
               <textarea
                 id="message"
-                {...register('message', {
-                  required: 'Message is required'
-                })}
-                className="w-full px-4 py-3 border text-gray-700 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                {...register('message', { required: 'Message is required' })}
+                className={`${inputClass} resize-none`}
                 rows={4}
-                placeholder="Your message..."
-              ></textarea>
+                placeholder="YOUR_MESSAGE_HERE..."
+              />
               {errors.message && (
-                <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
+                <p className="mt-1 text-xs text-[var(--destructive)] font-[family-name:var(--font-ibm-plex-mono)] uppercase">{errors.message.message}</p>
               )}
             </div>
 
-            <div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full flex justify-center items-center py-3 px-4 border-transparent rounded-xl text-white font-semibold bg-[#001F3F] cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 disabled:opacity-50"
-              >
-                {isSubmitting ? (
-                  <>
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send className="mr-2 h-5 w-5" />
-                    Send Message
-                  </>
-                )}
-              </button>
-            </div>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="brutal-btn w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? (
+                <>
+                  <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  TRANSMITTING...
+                </>
+              ) : (
+                <>
+                  <Send className="h-4 w-4" />
+                  Send Message
+                </>
+              )}
+            </button>
           </form>
         </div>
       </div>

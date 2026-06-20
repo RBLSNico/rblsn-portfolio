@@ -1,68 +1,59 @@
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MapPin, Send } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer className="bg-(--primary-blue) dark:bg-[#001F3F] text-white py-12 rounded-t-4xl h-full flex flex-col justify-between">
-            <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-start">
-                {/* Personal Info Section */}
+        <footer className="border-t-3 border-[var(--border-brutal)] bg-[var(--surface)] mt-12 w-full min-w-0 overflow-hidden">
+            <div className="container mx-auto px-4 py-10 grid md:grid-cols-2 gap-8 items-start w-full min-w-0">
                 <div className="space-y-4 text-center md:text-left">
-                    <h3 className="text-2xl font-bold mb-4">Gabriel Nicolas Robles</h3>
-                    <div className="flex items-center justify-center md:justify-start space-x-2 mb-2">
-                        <MapPin className="h-5 w-5 text-white/70" />
-                        <span className="text-white/80">Philippines</span>
+                    <div className="flex items-center justify-center md:justify-start gap-2">
+                        <span className="mono-label">FOOTER</span>
                     </div>
-                    <p className="text-white/70 max-w-xs mx-auto md:mx-0">
+                    <h3 className="display-title text-2xl">Gabriel Nicolas Robles</h3>
+                    <div className="flex items-center justify-center md:justify-start gap-2">
+                        <MapPin className="h-4 w-4" />
+                        <span className="font-[family-name:var(--font-ibm-plex-mono)] text-xs uppercase tracking-widest">Philippines</span>
+                    </div>
+                    <p className="text-[var(--muted-foreground)] max-w-xs mx-auto md:mx-0 text-sm">
                         Motivated developer committed to continuous learning and driven by solving real-world problems.
                     </p>
                 </div>
 
-                {/* Quick Links */}
-                {/* <div className="space-y-4 text-center">
-                    <h3 className="text-2xl font-bold mb-4">Quick Links</h3>
-                    <div className="flex flex-col space-y-2">
-                        <a href="#home" className="hover:text-accent transition-colors">Home</a>
-                        <a href="#about" className="hover:text-accent transition-colors">About</a>
-                        <a href="#projects" className="hover:text-accent transition-colors">Projects</a>
-                        <a href="#contact" className="hover:text-accent transition-colors">Contact</a>
-                    </div>
-                </div> */}
-
-                {/* Contact Section */}
                 <div className="space-y-4 text-center md:text-right">
-                    <h3 className="text-2xl font-bold mb-4">Get In Touch</h3>
-                    <div className="flex justify-center md:justify-end space-x-4 mb-4">
+                    <span className="mono-label">GET_IN_TOUCH</span>
+                    <div className="flex justify-center md:justify-end py-4 gap-3">
                         <a
                             href="https://www.linkedin.com/in/gabriel-nicolas-robles-b2027b24b/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition-all duration-300 ease-in-out transform hover:scale-110"
+                            className="brutal-btn brutal-btn-outline !p-3"
+                            aria-label="LinkedIn"
                         >
-                            <FaLinkedin className="h-6 w-6 text-white" />
+                            <FaLinkedin />
                         </a>
                         <a
                             href="https://github.com/RBLSNico"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition-all duration-300 ease-in-out transform hover:scale-110"
+                            className="brutal-btn brutal-btn-outline !p-3"
+                            aria-label="GitHub"
                         >
-                            <FaGithub className="h-6 w-6 text-white" />
+                            <FaGithub />
                         </a>
                     </div>
                     <a
                         href="mailto:roblesgabrielnicolas@gmail.com"
-                        className="inline-flex items-center text-white/80 hover:text-white transition-colors"
+                        className="inline-flex flex-wrap items-center justify-center md:justify-end gap-1 font-[family-name:var(--font-ibm-plex-mono)] text-[0.65rem] sm:text-xs uppercase tracking-wide sm:tracking-widest hover:text-[var(--accent-2)] transition-colors break-all max-w-full"
                     >
-                        <Send className="mr-2 h-5 w-5" />
+                        <Send className="h-4 w-4 shrink-0" />
                         roblesgabrielnicolas@gmail.com
                     </a>
                 </div>
             </div>
 
-            {/* Copyright */}
-            <div className="text-center py-4 border-t border-white/10 mt-10">
-                <p className="text-sm text-white/70">
-                    © {new Date().getFullYear()} Gabriel Nicolas Labutap Robles. All rights reserved.
+            <div className="border-t-3 border-[var(--border-brutal)] bg-[var(--accent)] text-[var(--accent-foreground)] px-4">
+                <p className="text-center py-3 font-[family-name:var(--font-ibm-plex-mono)] text-[0.55rem] sm:text-[0.65rem] uppercase tracking-wide sm:tracking-widest font-bold break-words leading-relaxed">
+                    © {new Date().getFullYear()} GABRIEL NICOLAS LABUTAP ROBLES — ALL_RIGHTS_RESERVED — RBLSN.DEV
                 </p>
             </div>
         </footer>

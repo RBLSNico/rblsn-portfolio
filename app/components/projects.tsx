@@ -44,7 +44,35 @@ interface ProjectCardProps {
     isWorkExperience?: boolean;
 }
 
+const TechIcon: React.FC<{ icon: React.ElementType; name: string }> = ({ icon: Icon, name }) => {
+    const [showName, setShowName] = useState(false);
+
+    return (
+        <div
+            className="relative group cursor-pointer"
+            onClick={() => setShowName(!showName)}
+        >
+            <div className="border-2 border-[var(--border-brutal)] p-2 bg-[var(--surface-2)] hover:bg-[var(--accent)] transition-colors duration-100">
+                <Icon size={20} />
+            </div>
+            <span
+                className={`absolute bottom-[-24px] left-1/2 -translate-x-1/2 whitespace-nowrap font-[family-name:var(--font-ibm-plex-mono)] text-[0.55rem] uppercase tracking-widest bg-[var(--foreground)] text-[var(--background)] px-2 py-0.5 border border-[var(--border-brutal)] opacity-0 group-hover:opacity-100 transition-opacity duration-100 z-10 ${showName ? "opacity-100" : ""}`}
+            >
+                {name}
+            </span>
+        </div>
+    );
+};
+
 gsap.registerPlugin(ScrollTrigger);
+
+const CARD_ACCENTS = [
+    { header: 'bg-[var(--accent)] text-[var(--accent-foreground)]', body: 'bg-[var(--surface)]' },
+    { header: 'bg-[var(--accent-2)] text-white', body: 'bg-[var(--surface)]' },
+    { header: 'bg-[var(--accent-3)] text-[#0A0A0A]', body: 'bg-[var(--surface)]' },
+    { header: 'bg-[var(--surface-2)] text-[var(--foreground)]', body: 'bg-[var(--surface)]' },
+    { header: 'bg-[var(--foreground)] text-[var(--background)]', body: 'bg-[var(--surface)]' },
+];
 
 const ProjectsSection = () => {
     const projectsRef = useRef<HTMLDivElement[]>([]);
@@ -175,7 +203,7 @@ const ProjectsSection = () => {
                             <img
                                 src="/image/faha_metrix_before.png"
                                 alt="sample works"
-                                className="rounded-xl w-full h-auto cursor-pointer"
+                                className="w-full h-auto cursor-pointer border-2 border-[var(--border-brutal)]"
                                 onClick={() => setSelectedImage("/image/faha_metrix_before.png")} // Open modal on click
                             />
                         </CarouselItem>
@@ -184,7 +212,7 @@ const ProjectsSection = () => {
                             <img
                                 src="/image/faha_metrix_after.png"
                                 alt="sample works"
-                                className="rounded-xl w-full h-auto cursor-pointer"
+                                className="w-full h-auto cursor-pointer border-2 border-[var(--border-brutal)]"
                                 onClick={() => setSelectedImage("/image/faha_metrix_after.png")} // Open modal on click
                             />
                         </CarouselItem>
@@ -221,7 +249,7 @@ const ProjectsSection = () => {
                             <img
                                 src="/image/kunda_before.png"
                                 alt="sample works"
-                                className="rounded-xl w-full h-auto cursor-pointer"
+                                className="w-full h-auto cursor-pointer border-2 border-[var(--border-brutal)]"
                                 onClick={() => setSelectedImage("/image/kunda_before.png")} // Open modal on click
                             />
                         </CarouselItem>
@@ -230,7 +258,7 @@ const ProjectsSection = () => {
                             <img
                                 src="/image/kunda_after.png"
                                 alt="sample works"
-                                className="rounded-xl w-full h-auto cursor-pointer"
+                                className="w-full h-auto cursor-pointer border-2 border-[var(--border-brutal)]"
                                 onClick={() => setSelectedImage("/image/kunda_after.png")} // Open modal on click
                             />
                         </CarouselItem>
@@ -357,8 +385,10 @@ const ProjectsSection = () => {
         },
     ];
 
-    // Project card component to avoid repetition
     const ProjectCard: React.FC<ProjectCardProps> = ({ item, index, isWorkExperience = false }) => {
+        const accent = CARD_ACCENTS[index % CARD_ACCENTS.length];
+        const fileId = `FILE-${String(index + 1).padStart(3, '0')}`;
+
         return (
             <div
                 key={index}
@@ -366,96 +396,94 @@ const ProjectsSection = () => {
                     if (el) projectsRef.current.push(el);
                 }}
                 id={item.id}
-                className={`rounded-xl ${item.gradient} flex-col w-full flex`}
+                className="brutal-box flex-col w-full flex bg-[var(--surface)] overflow-hidden"
             >
-                <div className={`flex flex-col items-center gap-5 w-full p-8 ${isWorkExperience ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                    {/* Carousel Section */}
-                    <div className="flex items-center justify-center md:w-1/2">
-                        <Carousel className="max-w-[85%]">
+                <div className={`flex flex-wrap items-center justify-between gap-2 px-4 sm:px-5 py-3 border-b-3 border-[var(--border-brutal)] ${accent.header}`}>
+                    <span className="font-[family-name:var(--font-ibm-plex-mono)] text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-wide sm:tracking-widest break-words min-w-0">
+                        EVIDENCE_ID: {fileId}
+                    </span>
+                    <span className="status-pill !text-[inherit] !border-current">
+                        {isWorkExperience ? 'WORK' : 'PROJECT'}
+                    </span>
+                </div>
+
+                <div className={`flex flex-col items-center gap-6 w-full p-6 md:p-8 ${isWorkExperience ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                    <div className="flex items-center justify-center md:w-1/2 w-full min-w-0 px-8 sm:px-0">
+                        <Carousel className="w-full max-w-full">
                             <CarouselContent>
                                 {item.images.map((image: string, i: number) => (
                                     <CarouselItem key={i} className="flex justify-center">
-                                        <img src={image} alt={`${item.title} - ${i + 1}`} className="rounded-xl w-full h-auto cursor-pointer" onClick={() => setSelectedImage(image)} />
+                                        <img
+                                            src={image}
+                                            alt={`${item.title} - ${i + 1}`}
+                                            className="w-full h-auto cursor-pointer border-3 border-[var(--border-brutal)] shadow-[4px_4px_0_var(--border-brutal)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_var(--border-brutal)] transition-all duration-100"
+                                            onClick={() => setSelectedImage(image)}
+                                        />
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
-                            <CarouselPrevious />
-                            <CarouselNext />
+                            <CarouselPrevious className="!border-2 !border-[var(--border-brutal)] !shadow-[2px_2px_0_var(--border-brutal)] !bg-[var(--accent)] !text-[var(--accent-foreground)] hover:!bg-[var(--accent-2)]" />
+                            <CarouselNext className="!border-2 !border-[var(--border-brutal)] !shadow-[2px_2px_0_var(--border-brutal)] !bg-[var(--accent)] !text-[var(--accent-foreground)] hover:!bg-[var(--accent-2)]" />
                         </Carousel>
                     </div>
 
-                    {/* Project Info Section */}
                     <div className="w-full md:w-1/2 flex flex-col gap-3 items-center md:items-start">
-                        <h1 className="text-white text-2xl font-semibold text-center md:text-left">{item.title}</h1>
-                        <h2 className="text-white text-md font-normal text-center md:text-left">{item.position}</h2>
-                        <h2 className="text-white text-sm font-extralight text-center md:text-left">{item.date}</h2>
-                        <p className="text-white text-center md:text-left">{item.description}</p>
+                        <h3 className="display-title text-2xl md:text-3xl text-center md:text-left">{item.title}</h3>
+                        {item.position && (
+                            <span className="status-pill status-pill--cyan">{item.position}</span>
+                        )}
+                        <p className="font-[family-name:var(--font-ibm-plex-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--muted-foreground)]">
+                            DATE: {item.date}
+                        </p>
+                        <p className="text-sm leading-relaxed text-center md:text-left border-l-3 border-[var(--accent-2)] pl-3">
+                            {item.description}
+                        </p>
 
-                        {/* Technology Icons */}
-                        <div className="flex flex-wrap gap-4 justify-center md:justify-start mt-2">
-                            {item.icons.map((iconItem, i) => {
-                                const [showName, setShowName] = useState(false);
-
-                                return (
-                                    <div
-                                        key={i}
-                                        className="flex flex-col items-center relative group cursor-pointer"
-                                        onClick={() => setShowName(!showName)}
-                                    >
-                                        <iconItem.icon
-                                            size={24}
-                                            className="text-white hover:text-gray-200 transition-colors duration-300"
-                                        />
-                                        <span
-                                            className={`absolute bottom-[-20px] bg-gray-800 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${showName ? "opacity-100" : ""}`}
-                                        >
-                                            {iconItem.name}
-                                        </span>
-                                    </div>
-                                );
-                            })}
+                        <div className="flex flex-wrap gap-2 justify-center md:justify-start mt-2">
+                            {item.icons.map((iconItem, i) => (
+                                <TechIcon key={i} icon={iconItem.icon} name={iconItem.name} />
+                            ))}
                         </div>
 
-                        {/* Link Button Rendering */}
                         {(item.github || item.link) && (
                             <a
                                 href={item.github || item.link}
-                                className="flex items-center mt-2 w-fit bg-white hover:bg-black hover:text-white text-black rounded-xl px-5 py-3 hover:bg-opacity-80 transition-colors duration-300 ease-in-out"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="brutal-btn brutal-btn-outline mt-3"
                             >
                                 {item.github ? (
                                     <>
-                                        <FaGithub className="mr-2" />
-                                        View on GitHub
+                                        <FaGithub />
+                                        GitHub
                                     </>
                                 ) : (
                                     <>
-                                        <FaLaptop className="mr-2" />
-                                        Visit Website
+                                        <FaLaptop />
+                                        Visit Site
                                     </>
                                 )}
                             </a>
                         )}
                     </div>
                 </div>
-                <span>{item.accordion}</span>
+                {item.accordion}
             </div>
         );
     };
 
     return (
         <>
-            <section id="projects" className="rounded-xl flex flex-col items-center gap-10">
-                {/* Work Experience Section Header */}
+            <section id="projects" className="flex flex-col items-center gap-10">
                 <div
                     ref={(el) => { if (el) sectionsRef.current[0] = el; }}
-                    className="w-full flex flex-col items-center gap-3 mt-5"
+                    className="w-full flex flex-col items-start gap-2"
                 >
-                    {/* <div className="flex items-center gap-2 bg-blue-900 text-white px-6 py-3 rounded-full">
-                    <FaBriefcase size={20} />
-                    <h1 className="text-white text-2xl font-bold">Work Experience</h1>
-                </div>
-                <div className="h-1 w-32 bg-blue-600 rounded-full"></div> */}
-                    <h1 className="text-(--primary-blue) text-4xl font-extrabold text-center mt-5">Work Experience</h1>
+                    <span className="mono-label">WORK_EXPERIENCE</span>
+                    <h2 className="section-title">Work Experience</h2>
+                    <p className="font-[family-name:var(--font-ibm-plex-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--muted-foreground)]">
+                        FILES_LOADED: {workExperience.length}
+                    </p>
                 </div>
 
                 {/* Work Experience Cards */}
@@ -465,23 +493,17 @@ const ProjectsSection = () => {
                     ))}
                 </div>
 
-                {/* Divider between sections */}
-                <div className="w-full flex justify-center my-8">
-                    <div className="relative w-full max-w-4xl h-px bg-gray-300">
-                    </div>
-                </div>
+                <div className="w-full border-t-3 border-dashed border-[var(--border-brutal)] my-4" />
 
-                {/* Projects Section Header */}
                 <div
                     ref={(el) => { if (el) sectionsRef.current[1] = el; }}
-                    className="w-full flex flex-col items-center gap-3 mt-5"
+                    className="w-full flex flex-col items-start gap-2"
                 >
-                    {/* <div className="flex items-center gap-2 bg-green-800 text-white px-6 py-3 rounded-full">
-                    <FaLaptopCode size={20} />
-                    <h1 className="text-white text-2xl font-bold">Projects</h1>
-                </div>
-                <div className="h-1 w-32 bg-green-600 rounded-full"></div> */}
-                    <h1 className="text-(--primary-blue) text-4xl font-extrabold text-center">Projects</h1>
+                    <span className="mono-label">PROJECTS</span>
+                    <h2 className="section-title">Projects</h2>
+                    <p className="font-[family-name:var(--font-ibm-plex-mono)] text-[0.65rem] uppercase tracking-widest text-[var(--muted-foreground)]">
+                        FILES_LOADED: {projects.length}
+                    </p>
                 </div>
 
 
@@ -497,14 +519,21 @@ const ProjectsSection = () => {
             {/* Full-Screen Modal */}
             {selectedImage && (
                 <div
-                    className="fixed inset-0 bg-gray/20 backdrop-blur-sm bg-opacity-50 flex justify-center items-center z-50"
-                    onClick={closeModal} // Close when clicking outside
+                    className="fixed inset-0 bg-[var(--background)]/80 backdrop-blur-sm flex justify-center items-center z-50 p-4"
+                    onClick={closeModal}
                 >
-                    <div>
+                    <div className="relative border-3 border-[var(--border-brutal)] shadow-[8px_8px_0_var(--border-brutal)] bg-[var(--surface)] p-2">
+                        <button
+                            onClick={closeModal}
+                            className="absolute -top-3 -right-3 brutal-btn !p-2 !text-xs z-10"
+                            aria-label="Close"
+                        >
+                            [ X ]
+                        </button>
                         <img
                             src={selectedImage}
                             alt="Full Screen"
-                            className="max-w-full max-h-[90vh] rounded-xl shadow-lg"
+                            className="max-w-full max-h-[85vh] object-contain"
                         />
                     </div>
                 </div>
