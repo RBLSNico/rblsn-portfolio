@@ -66,29 +66,19 @@ const HomeSection = () => {
             ref={sectionRef}
             className="brutal-box flex flex-col p-4 sm:p-6 md:p-10 gap-6 bg-[var(--surface)] w-full min-w-0 overflow-hidden"
         >
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b-3 border-[var(--border-brutal)] pb-4">
-                <span className="mono-label">USER_PROFILE</span>
-                <div className="flex flex-wrap gap-2 justify-end">
-                    <span className="status-pill status-pill--lime">AVAILABLE</span>
-                    <span className="status-pill status-pill--cyan">PH 🇵🇭</span>
-                </div>
-            </div>
-
             <div className="flex flex-col items-start gap-4 w-full min-w-0">
                 <p
                     ref={titleRef}
-                    className="font-[family-name:var(--font-ibm-plex-mono)] text-xs sm:text-sm uppercase tracking-wide sm:tracking-widest text-[var(--muted-foreground)] break-words"
+                    className="font-[family-name:var(--font-ibm-plex-mono)] text-xs sm:text-sm text-[var(--muted-foreground)] break-words"
                 >
-                    QUERY: WHO_IS_NICO<span className="cursor-blink" />
+                    Web developer based in the Philippines
                 </p>
 
                 <h1
                     ref={subtitleRef}
-                    className="display-title text-[2rem] sm:text-5xl md:text-7xl lg:text-8xl leading-[0.9] w-full"
+                    className="display-title normal-case text-[2rem] sm:text-5xl md:text-7xl lg:text-8xl leading-[0.98] w-full"
                 >
-                    Gabriel
-                    <br />
-                    <span className="text-[var(--accent-2)]">Nicolas</span>
+                    Gabriel Nicolas
                     <br />
                     <span className="text-[var(--accent)]">Robles</span>
                 </h1>
@@ -149,13 +139,6 @@ const HomeSection = () => {
                 </div>
             </div>
 
-            <div className="font-[family-name:var(--font-ibm-plex-mono)] text-[0.6rem] sm:text-[0.65rem] uppercase tracking-wide sm:tracking-widest text-[var(--muted-foreground)] border-t-2 border-dashed border-[var(--border-brutal)] pt-4 mt-2 break-words leading-relaxed">
-                <span className="block sm:inline">FILES_LOADED: 4_SECTIONS</span>
-                <span className="hidden sm:inline"> — </span>
-                <span className="block sm:inline">LAST_UPDATE: 2025</span>
-                <span className="hidden sm:inline"> — </span>
-                <span className="block sm:inline">BUILD: NEXT.JS_16</span>
-            </div>
         </section>
     );
 };

@@ -54,8 +54,12 @@ const Header: React.FC = () => {
     }, []);
 
     useEffect(() => {
+        document.documentElement.style.overflow = isMobileMenuOpen ? 'hidden' : '';
         document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
-        return () => { document.body.style.overflow = ''; };
+        return () => {
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+        };
     }, [isMobileMenuOpen]);
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string): void => {
@@ -84,23 +88,22 @@ const Header: React.FC = () => {
     }, [isMobileMenuOpen]);
 
     const linkClass = (href: string, mobile = false) =>
-        `font-[family-name:var(--font-ibm-plex-mono)] text-xs font-bold uppercase tracking-widest border-2 border-[var(--border-brutal)] transition-all duration-100 ${mobile ? 'block w-full text-center px-3 py-3' : 'px-3 py-2'
+        `font-[family-name:var(--font-ibm-plex-mono)] text-xs font-bold uppercase tracking-widest transition-all duration-100 ${mobile ? 'block w-full text-center px-3 py-3 border border-[var(--border-brutal)]' : 'px-2 py-2'
         } ${activeLink === href
-            ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-[3px_3px_0_var(--border-brutal)]'
-            : 'bg-[var(--surface)] hover:bg-[var(--accent-3)] hover:text-[#0A0A0A] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[3px_3px_0_var(--border-brutal)]'
+            ? 'bg-[var(--surface-2)] text-[var(--foreground)]'
+            : 'bg-transparent hover:bg-[var(--surface-2)]'
         }`;
 
     return (
-        <div className="header-wrapper relative z-50 w-full min-w-0">
-            <header className="sticky top-0 brutal-box flex flex-row items-center justify-between gap-2 px-3 sm:px-4 py-3 bg-[var(--surface)] w-full min-w-0">
+        <div className={`header-wrapper ${isMobileMenuOpen ? 'fixed inset-x-0 top-0' : 'sticky top-0'} z-50 mx-auto w-full max-w-[1140px] min-w-0`}>
+            <header className="brutal-box flex flex-row items-center justify-between gap-2 px-3 sm:px-4 py-3 bg-[var(--surface)] w-full min-w-0">
                 <div className="flex items-center gap-2 min-w-0 flex-1 overflow-hidden">
-                    <span className="font-[family-name:var(--font-ibm-plex-mono)] text-[0.65rem] sm:text-xs font-bold uppercase tracking-widest truncate">
+                    <a href="#home" className="font-[family-name:var(--font-ibm-plex-mono)] text-[0.65rem] sm:text-xs font-bold uppercase tracking-widest truncate">
                         RBLSN<span className="text-[var(--accent-2)]">.DEV</span>
-                    </span>
-                    <span className="status-pill status-pill--lime hidden sm:inline shrink-0">SYS_ONLINE</span>
+                    </a>
                 </div>
 
-                {/* <nav className="hidden md:flex items-center gap-1.5 shrink-0">
+                <nav className="hidden md:flex items-center gap-1.5 shrink-0">
                     {navLinks.map((link) => (
                         <a
                             key={link.href}
@@ -111,7 +114,7 @@ const Header: React.FC = () => {
                             {link.label}
                         </a>
                     ))}
-                </nav> */}
+                </nav>
 
                 <div className="flex items-center gap-2 shrink-0">
                     <DarkModeToggle />

@@ -39,11 +39,6 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${ibmPlexMono.variable} ${dmSans.variable} bg-grid min-h-screen`}
       >
-        <div className="ticker-bar py-1.5">
-          <div className="ticker-content">
-            RBLSN_PORTFOLIO v2.0 — STATUS: ONLINE — DEV: GABRIEL NICOLAS ROBLES — STACK: NEXT.JS / REACT / TYPESCRIPT — AVAILABLE FOR WORK — RBLSN_PORTFOLIO v2.0 — STATUS: ONLINE — DEV: GABRIEL NICOLAS ROBLES — STACK: NEXT.JS / REACT / TYPESCRIPT — AVAILABLE FOR WORK —&nbsp;
-          </div>
-        </div>
         {children}
         <Footer />
       </body>
